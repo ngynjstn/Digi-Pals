@@ -1,2 +1,75 @@
 # Digi-Pals
-The Digi-Pals project aims to develop a small, playable prototype of a Pokémon-inspired game using the Godot game engine. The primary focus will be on creating an initial gameplay loop, which includes character creation, selecting a starter, exploring a defined area, and engaging in turn-based battles. Will have development and production branch.
+
+## Project Overview
+Digi-Pals is a prototype development project aimed at creating a small, playable Pokémon-inspired game using the Godot game engine. The focus is on implementing core gameplay mechanics such as character creation, exploring an environment, and engaging in turn-based battles.
+
+## General Objective
+The primary goal is to build a functional prototype that showcases the initial gameplay loop, including:
+- Waking up in the player's house.
+- Selecting a starter creature.
+- Exploring the surrounding area and encountering wild creatures.
+- Engaging in basic turn-based battles.
+
+## Specific Objectives
+1. **Gameplay Loop Implementation:**
+   - Implement a simple, interactive gameplay loop with core mechanics.
+2. **Character and Environment Design:**
+   - Create and design characters, creatures, and the initial game map.
+3. **Core Mechanics:**
+   - Develop a turn-based battle system and random encounters.
+4. **Database Integration:**
+   - Use a database to manage creature stats, moves, and player inventory.
+5. **Testing and Debugging:**
+   - Test the prototype for bugs and performance issues.
+
+## Team Members
+- **Dan Nguyen** - Project Manager
+- **Justin Nguyen** - Lead Developer
+- **Danny Tran** - Game Designer
+- **Keaton** - Database Developer
+- **Mary** - QA Specialist
+
+## Project Setup
+### Prerequisites
+- [Godot Engine](https://godotengine.org/download)
+- [Git](https://git-scm.com/downloads)
+- [SQLite](https://www.sqlite.org/download.html) (or any other preferred database system)
+
+### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/Digi-Pals.git
+    ```
+2. Open the project in Godot:
+    - Launch Godot and import the project from the cloned directory.
+3. Set up the database:
+    - Create a new SQLite database and add tables for creatures, moves, and inventory.
+
+## Features
+- Character creation and starter selection.
+- Exploration of a small environment with interactive NPCs.
+- Basic turn-based battles with creatures.
+- Simple UI for health and move selection.
+
+## Communication Channels
+- **Discord:** For daily/weekly standups and team discussions.
+- **Azure DevOps:** For project management, sprint planning, and task tracking.
+
+## Development Process
+### Sprint 1: Project Setup and Initial Development (9/9 - 9/13)
+- Refine project proposal and define objectives.
+- Gather requirements and establish coding standards.
+
+### Sprint 2: Core Mechanics Development (9/13 - 9/20)
+- Implement character movement and initial battle system.
+
+### Sprint 3: Database Integration and Testing (9/20 - 9/27)
+- Integrate database and conduct testing.
+
+## Future Plans
+- Expand character customization options.
+- Add more NPC interactions and story elements.
+- Introduce more complex battle mechanics and creature abilities.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
