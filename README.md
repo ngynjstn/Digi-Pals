@@ -37,13 +37,13 @@ The primary goal is to build a functional prototype that showcases the initial g
 
 ### Installation
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/Digi-Pals.git
-    ```
+	```bash
+	git clone https://github.com/your-username/Digi-Pals.git
+	```
 2. Open the project in Godot:
-    - Launch Godot and import the project from the cloned directory.
+	- Launch Godot and import the project from the cloned directory.
 3. Set up the database:
-    - Create a new SQLite database and add tables for creatures, moves, and inventory.
+	- Create a new SQLite database and add tables for creatures, moves, and inventory.
 
 ## Features
 - Character creation and starter selection.
