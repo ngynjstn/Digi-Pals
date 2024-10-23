@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://WorldMap/worldmap.png" id="1_lacod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_146jq"]
+size = Vector2(20, 13)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -15,5 +16,5 @@ centered = false
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(100, 150)
+position = Vector2(128, 154)
 shape = SubResource("RectangleShape2D_146jq")

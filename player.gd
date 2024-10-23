@@ -5,7 +5,7 @@ signal player_stopped_signal
 signal player_entering_door_signal
 signal player_entered_door_signal
 
-@export var walk_speed = 4.0
+@export var walk_speed = 100.0
 @export var jump_speed = 4.0
 const TILE_SIZE = 16
 const TURN_DURATION = 0.5  # Duration for the turn animation
@@ -101,14 +101,30 @@ func need_to_turn() -> bool:
 	return false
 
 func move(delta):
-	percent_moved_to_next_tile += walk_speed * delta
-	if percent_moved_to_next_tile >= 1.0:
-		position = initial_position + (input_direction * TILE_SIZE)
+	# Calculate the step for this frame
+	var step = input_direction * walk_speed * delta
+
+	# Attempt to move using move_and_collide()
+	var collision = move_and_collide(step)
+
+	if collision:
+		# If a collision occurs, stop movement and emit signal
 		percent_moved_to_next_tile = 0.0
 		is_moving = false
 		emit_signal("player_stopped_signal")
 	else:
-		position = initial_position + (input_direction * TILE_SIZE * percent_moved_to_next_tile)
+		# Continue moving smoothly toward the next tile
+		percent_moved_to_next_tile += step.length() / TILE_SIZE
+
+		if percent_moved_to_next_tile >= 1.0:
+			# Snap to the next tile when fully moved
+			position = initial_position + (input_direction * TILE_SIZE)
+			percent_moved_to_next_tile = 0.0
+			is_moving = false
+			emit_signal("player_stopped_signal")
+		else:
+			# Update position incrementally
+			position = initial_position + (input_direction * TILE_SIZE * percent_moved_to_next_tile)
 
 func finished_turning():
 	player_state = PlayerState.IDLE

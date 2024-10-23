@@ -406,8 +406,13 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_uneha")
 states/Walk/position = Vector2(373.6, 48.784)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_8x65y")
 metadata/_edit_vertical_guides_ = [-32.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_7srll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -418,10 +423,6 @@ flip_h = true
 hframes = 3
 vframes = 3
 frame = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_7srll")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
