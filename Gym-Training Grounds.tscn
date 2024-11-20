@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyoetk5tynboh"]
+[gd_scene load_steps=14 format=3 uid="uid://dyoetk5tynboh"]
 
 [ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://player.tscn" id="1_5b3t3"]
 [ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://WorldMap/worldmap.png" id="2_k5ybg"]
@@ -992,11 +992,16 @@ sources/2 = SubResource("TileSetAtlasSource_31bol")
 sources/3 = SubResource("TileSetAtlasSource_302dt")
 sources/4 = SubResource("TileSetAtlasSource_qeqkr")
 
+[sub_resource type="GDScript" id="GDScript_320wf"]
+script/source = "
+"
+
 [node name="Gym-trainingGrounds" type="Node2D"]
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [1270.0]
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
 position = Vector2(0, 1)
 tile_set = SubResource("TileSet_x13os")
 format = 2
@@ -1014,7 +1019,6 @@ layer_2/tile_data = PackedInt32Array(655372, 0, 6, 786439, 0, 6, 196614, 0, 6, 9
 [node name="Player" parent="." instance=ExtResource("1_5b3t3")]
 y_sort_enabled = true
 position = Vector2(552, 115)
-walk_speed = 8000.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-8, 13)
@@ -1022,6 +1026,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 976
 limit_bottom = 2128
+script = SubResource("GDScript_320wf")
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 
