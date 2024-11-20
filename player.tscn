@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8vmmy6yptuwv" path="res://Assets/Player/Male_Spritesheet.png" id="1_anw6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7srll"]
-size = Vector2(32, 32)
+size = Vector2(18, 16)
 
 [sub_resource type="Animation" id="Animation_0527t"]
 resource_name = "IdleDown"
@@ -411,11 +411,12 @@ script = ExtResource("1_8x65y")
 metadata/_edit_vertical_guides_ = [-32.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
+position = Vector2(11, 24)
 shape = SubResource("RectangleShape2D_7srll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-5, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_anw6f")
 centered = false
