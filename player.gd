@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 signal player_moving_signal
 signal player_stopped_signal
-signal player_entering_door_signal
-signal player_entered_door_signal
 
 @export var walk_speed = 100.0
 @export var jump_speed = 4.0
@@ -34,12 +32,14 @@ func _physics_process(delta):
 	if stop_input:
 		return
 	
+	# Handle turning state
 	if player_state == PlayerState.TURNING:
 		turn_time += delta
 		if turn_time >= TURN_DURATION:
 			finished_turning()
 		return
 	
+	# Handle movement logic
 	if is_moving:
 		if input_direction != Vector2.ZERO:
 			anim_state.travel("Walk")
@@ -71,6 +71,10 @@ func process_player_movement_input():
 		anim_tree.set("parameters/Walk/blend_position", input_direction)
 		anim_tree.set("parameters/Turn/blend_position", input_direction)
 
+		# Only emit signal once when movement starts
+		if not is_moving:
+			emit_signal("player_moving_signal")  # Emit the signal when the player starts moving
+	
 		if need_to_turn():
 			player_state = PlayerState.TURNING
 			anim_state.travel("Turn")
@@ -113,6 +117,10 @@ func move(delta):
 		is_moving = false
 		emit_signal("player_stopped_signal")
 	else:
+		# Emit the moving signal while the player is moving
+		emit_signal("player_moving_signal")
+		
+		
 		# Continue moving smoothly toward the next tile
 		percent_moved_to_next_tile += step.length() / TILE_SIZE
 

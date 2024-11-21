@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyoetk5tynboh"]
+[gd_scene load_steps=15 format=3 uid="uid://dyoetk5tynboh"]
 
 [ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://player.tscn" id="1_5b3t3"]
 [ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://WorldMap/worldmap.png" id="2_k5ybg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b3fu4i6x67yb6" path="res://WorldMap/terrain1.png" id="3_k3jgh"]
 [ext_resource type="Texture2D" uid="uid://duimx70ot4345" path="res://WorldMap/house2.png" id="4_7wikc"]
 [ext_resource type="Texture2D" uid="uid://dc4cwn58hi8nc" path="res://WorldMap/house5.png" id="5_dtjkx"]
+[ext_resource type="PackedScene" uid="uid://bq7mbtmuin8lf" path="res://tall_grass.tscn" id="7_5ob18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryh0h"]
 texture = ExtResource("2_k5ybg")
@@ -993,8 +994,6 @@ sources/3 = SubResource("TileSetAtlasSource_302dt")
 sources/4 = SubResource("TileSetAtlasSource_qeqkr")
 
 [sub_resource type="GDScript" id="GDScript_320wf"]
-script/source = "
-"
 
 [node name="Gym-trainingGrounds" type="Node2D"]
 y_sort_enabled = true
@@ -1027,6 +1026,11 @@ limit_top = 0
 limit_right = 976
 limit_bottom = 2128
 script = SubResource("GDScript_320wf")
+
+[node name="Grasses" type="Node" parent="."]
+
+[node name="Tall Grass" parent="Grasses" instance=ExtResource("7_5ob18")]
+position = Vector2(565, 166)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 
