@@ -115,11 +115,11 @@ func move(delta):
 		# If a collision occurs, stop movement and emit signal
 		percent_moved_to_next_tile = 0.0
 		is_moving = false
-		emit_signal("player_stopped_signal")
+		print("Collision detected! Stopping player.")
+		emit_signal("player_stopped_signal")  # Emit signal when collision occurs
 	else:
 		# Emit the moving signal while the player is moving
 		emit_signal("player_moving_signal")
-		
 		
 		# Continue moving smoothly toward the next tile
 		percent_moved_to_next_tile += step.length() / TILE_SIZE
@@ -129,7 +129,8 @@ func move(delta):
 			position = initial_position + (input_direction * TILE_SIZE)
 			percent_moved_to_next_tile = 0.0
 			is_moving = false
-			emit_signal("player_stopped_signal")
+			print("Player has reached the target tile, stopping.")
+			emit_signal("player_stopped_signal")  # Emit signal when player reaches the target
 		else:
 			# Update position incrementally
 			position = initial_position + (input_direction * TILE_SIZE * percent_moved_to_next_tile)
