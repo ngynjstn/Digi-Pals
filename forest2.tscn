@@ -1493,6 +1493,11 @@ tile_map_data = PackedByteArray("AAD3/wMAAAAEAAYAAAD3/wQAAAAEAAcAAAD3/wUAAAAEAAg
 tile_set = SubResource("TileSet_h5paq")
 
 [node name="Player" parent="." instance=ExtResource("3_xamhx")]
-position = Vector2(-128, 192)
+position = Vector2(-80, 192)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(256, 0)
+limit_left = -128
+limit_top = -50
+limit_right = 650
+limit_bottom = 480
