@@ -1032,6 +1032,12 @@ script = SubResource("GDScript_320wf")
 [node name="Tall Grass" parent="Grasses" instance=ExtResource("7_5ob18")]
 position = Vector2(565, 166)
 
+[node name="Tall Grass2" parent="Grasses" instance=ExtResource("7_5ob18")]
+position = Vector2(540, 166)
+
+[node name="Tall Grass3" parent="Grasses" instance=ExtResource("7_5ob18")]
+position = Vector2(515, 166)
+
 [node name="Collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]

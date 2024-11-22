@@ -8,6 +8,8 @@ var grass_overlay: TextureRect = null
 var player_inside: bool = false
 var player_stopped: bool = false  # Flag to track if player has stopped
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Replace this path with the actual path to your player node
@@ -24,7 +26,8 @@ func _ready():
 var grass_step_effect: Node = null  # Declare outside so it's not instantiated every time
 
 func player_in_grass():
-	if player_inside == true:
+	# Simply check if the player is inside
+	if player_inside:
 		print("Player is in the grass.")  # Debug print for player inside grass
 
 		# Check if grass_step_effect is already instantiated
@@ -57,12 +60,6 @@ func player_in_grass():
 	else:
 		print("Player is not inside the grass.")  # Debug print when player is not inside grass
 
-	# Check if the player stopped signal is active (player_stopped flag)
-	if player_stopped:
-		print("Player has stopped.")
-	else:
-		print("Player is moving.")
-
 func player_exiting_grass():
 	player_inside = false
 	print(player_inside)
@@ -73,7 +70,7 @@ func player_exiting_grass():
 	# Reset the stopped flag when the player exits the grass
 	player_stopped = false  # Reset stopped flag
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D):
 	player_inside = true
 	print("Player entered the grass area.")  # Debug print for entering the grass area
 	print(player_inside)
