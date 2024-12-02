@@ -1646,7 +1646,6 @@ scale = Vector2(0.26087, 0.3125)
 script = ExtResource("5_i65v2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
-scale = Vector2(1, 1)
 texture = ExtResource("4_xqr48")
 
 [node name="Area2D" type="Area2D" parent="Boss"]

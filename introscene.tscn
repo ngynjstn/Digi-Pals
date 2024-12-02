@@ -1055,6 +1055,21 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_g1yaf")
 
+[sub_resource type="Animation" id="Animation_h20b8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_ecjxv"]
 resource_name = "movingmain"
 loop_mode = 1
@@ -1071,7 +1086,13 @@ tracks/0/keys = {
 "values": [7, 8, 7, 6]
 }
 
-[sub_resource type="Animation" id="Animation_h20b8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8is3"]
+_data = {
+"RESET": SubResource("Animation_h20b8"),
+"movingmain": SubResource("Animation_ecjxv")
+}
+
+[sub_resource type="Animation" id="Animation_jmlmh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1083,13 +1104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8is3"]
-_data = {
-"RESET": SubResource("Animation_h20b8"),
-"movingmain": SubResource("Animation_ecjxv")
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_bs60q"]
@@ -1106,21 +1121,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_jmlmh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_coskl"]
