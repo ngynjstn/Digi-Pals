@@ -4,6 +4,7 @@ extends Node2D
 @onready var black_screen = $ColorRect
 @onready var animplayer = $AnimationPlayer
 @onready var boss = $Sprite2D
+@onready var girlfriend = $Girlfriend
 
 var transitioning = false
 var fade_duration = 1.5  # Time in seconds for the fade transition
@@ -58,6 +59,7 @@ func _on_fade_out_complete():
 	await get_tree().create_timer(1.0).timeout
 	# Make the boss disappear
 	boss.visible = false
+	girlfriend.visible = false
 	start_fade_in()
 
 func start_fade_in():
