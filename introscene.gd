@@ -16,10 +16,11 @@ var elapsed_time = 0.0
 var transitioning = false
 var fade_duration = 1.5  # Time in seconds for the fade transition
 var fade_elapsed_time = 0.0
-var conversation_duration = 5.0  # Time in seconds for the conversation
+var conversation_duration = 6.0  # Time in seconds for the conversation
 
 func _ready():
 	$AudioStreamPlayer2D.play()
+	$VoiceOver.play()
 	# Ensure the Timer node is not null
 	if conversation_timer == null:
 		print("Error: ConversationTimer node is not found.")

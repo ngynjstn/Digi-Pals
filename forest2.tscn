@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://brswk660ccpr5"]
+[gd_scene load_steps=34 format=4 uid="uid://brswk660ccpr5"]
 
 [ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://WorldMap/worldmap.png" id="1_0i7i4"]
 [ext_resource type="Texture2D" uid="uid://b3fu4i6x67yb6" path="res://WorldMap/terrain1.png" id="2_jmegw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ca73w6pg6kvia" path="res://Assets/Player/animated-thought-bubble-2.png" id="5_tsjcb"]
 [ext_resource type="AudioStream" uid="uid://csdyoe1sy47s3" path="res://Assets/Player/115-kangaskhan.mp3" id="6_cv3ss"]
 [ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="6_ln2c0"]
+[ext_resource type="Texture2D" uid="uid://bn42d8sgbjomd" path="res://Assets/UI/Pokemon Party/dialouge.png" id="10_r78hd"]
 
 [sub_resource type="GDScript" id="GDScript_awkut"]
 script/source = "extends Node2D
@@ -1766,6 +1767,31 @@ root_node = NodePath("../../cutscene/AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_y7vg6")
 }
+
+[node name="Dialouge" type="Sprite2D" parent="Boss"]
+texture_filter = 1
+position = Vector2(-981.332, 409.6)
+scale = Vector2(1.63585, 1.21581)
+texture = ExtResource("10_r78hd")
+
+[node name="Label" type="Label" parent="Boss/Dialouge"]
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.222
+anchor_right = 0.892
+anchor_bottom = 0.775
+offset_left = -317.492
+offset_top = -109.822
+offset_right = -130.572
+offset_bottom = -67.4866
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_ln2c0")
+theme_override_font_sizes/font_size = 30
 
 [node name="cutscene" type="Node2D" parent="."]
 

@@ -5,6 +5,8 @@ extends Node2D
 @onready var animplayer = $AnimationPlayer
 @onready var boss = $Sprite2D
 @onready var girlfriend = $Girlfriend
+@onready var dialogue_label = $Dialouge/Label  # Reference to the Label node for dialogue
+@onready var dialogue = $Dialouge
 
 var transitioning = false
 var fade_duration = 1.5  # Time in seconds for the fade transition
@@ -12,10 +14,19 @@ var fade_elapsed_time = 0.0
 var fade_in = false
 var interaction_occurred = false  # Flag to track if interaction has occurred
 
+var dialogues = [
+	"Where did she go?",
+	"I need to find her.",
+	"I have to catch Digi-Pals to defeat that monster."
+]
+var current_dialogue_index = 0
+
 func _ready():
 	# Ensure the black screen starts invisible and fully transparent
 	black_screen.visible = false
 	black_screen.modulate = Color(0, 0, 0, 0)
+	dialogue_label.visible = false  # Hide dialogue initially
+	dialogue.visible = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not interaction_occurred:
@@ -74,3 +85,21 @@ func _on_fade_in_complete():
 	fade_elapsed_time = 0.0
 	black_screen.visible = false
 	black_screen.modulate = Color(0, 0, 0, 0)  # Reset transparency
+	start_inner_dialogue()
+
+func start_inner_dialogue():
+	dialogue.visible = true
+	dialogue_label.visible = true
+	show_next_dialogue()
+	
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		show_next_dialogue()
+		
+func show_next_dialogue():
+	if current_dialogue_index < dialogues.size():
+		dialogue_label.text = dialogues[current_dialogue_index]
+		current_dialogue_index += 1
+	else:
+		dialogue_label.visible = false  # Hide dialogue after all lines are shown
+		dialogue.visible = false
