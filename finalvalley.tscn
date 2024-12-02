@@ -4427,11 +4427,11 @@ tile_map_data = PackedByteArray("AAALAP7/AAAAAAQAAAALAP//AAAAAAUAAAALAAAAAAAAAAY
 tile_set = SubResource("TileSet_bxvke")
 
 [node name="Player" parent="." instance=ExtResource("8_6nb5l")]
-position = Vector2(128, 144)
+position = Vector2(128, -16)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(96, 48)
-limit_left = -128
-limit_top = -50
-limit_right = 650
-limit_bottom = 480
+position = Vector2(96, 32)
+limit_left = -100
+limit_top = -32
+limit_right = 1280
+limit_bottom = 528
