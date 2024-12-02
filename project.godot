@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Digi-Pals"
+<<<<<<< HEAD
 run/main_scene="res://finalvalley.tscn"
+=======
+run/main_scene="res://forest2.tscn"
+>>>>>>> 7037a0224d1613221ebab307457645b05e12785c
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
