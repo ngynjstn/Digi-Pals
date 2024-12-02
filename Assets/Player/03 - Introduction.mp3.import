@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cegu0x3mrt3w4"
+path="res://.godot/imported/03 - Introduction.mp3-cfad10b8e67b47d08dde5c20f14f22e9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/03 - Introduction.mp3"
+dest_files=["res://.godot/imported/03 - Introduction.mp3-cfad10b8e67b47d08dde5c20f14f22e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$Music.play()
+
 func _process(delta):
 	if Input.is_action_pressed("start"):
 		load_game()
