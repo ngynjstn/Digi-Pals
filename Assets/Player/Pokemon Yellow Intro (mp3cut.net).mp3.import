@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddug0upqi3chi"
+path="res://.godot/imported/Pokemon Yellow Intro (mp3cut.net).mp3-7813934b055d8b86929ed0afd8243000.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Pokemon Yellow Intro (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Pokemon Yellow Intro (mp3cut.net).mp3-7813934b055d8b86929ed0afd8243000.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

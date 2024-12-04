@@ -3,16 +3,23 @@ extends Control
 @onready var dialogue_label = $Dialouge/Label  # Reference to the Label node
 
 var dialogues = [
-	"Hello there! Welcome to the world of Digi-Pals!",
-	"My name is Joe! People call me the Digi-Pals Prof!",
-	"This world is inhabited by creatures called Digi-Pals!",
-	"For some people, Digi-Pals are pets. Others use them for battles.",
-	"As for myself... I study Digi-Pals as a profession."
+	"Greetings! I am Joe, the renowned Digi-Pal Professor!",
+	"In this vast world, amazing creatures known as Digi-Pals roam freely.",
+	"For some, Digi-Pals are cherished companions. 
+	 For others, they become powerful allies in battles.",
+	"As for me... I dedicate my life to studying these extraordinary beings, 
+	 unlocking the mysteries of their world.",
+	"Anyways! Welcome to an incredible journey, where adventure and 
+	 mystery await!",
+	"It seems you and your beloved are venturing deep 
+	 into the heart of an ancient forest, seeking wild Digi-Pals.",
+	"What secrets will unfold?"
 ]
 
 var current_dialogue_index = 0
 
 func _ready():
+	$Music.play()
 	# Ensure the dialogue_label is properly referenced
 	if dialogue_label:
 		# Set the text color to black
