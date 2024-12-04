@@ -10,6 +10,7 @@ const TURN_DURATION = 0.5  # Duration for the turn animation
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
+@onready var tilemap_layer = get_tree().current_scene.get_node("TileMap/Layer1")
 
 enum PlayerState { IDLE, TURNING, WALKING }
 enum FacingDirection { LEFT, RIGHT, UP, DOWN }
@@ -24,11 +25,42 @@ var stop_input: bool = false
 var percent_moved_to_next_tile = 0.0
 var turn_time = 0.0  # Track time spent turning
 
+var area: String = "":
+	set(value):
+		area = value
+		%Tile.text =value 
 func _ready():
 	anim_tree.active = true
 	initial_position = position
+	print(tilemap_layer)
+
+ 
+func update_tile():
+	if tilemap_layer:
+		# Snap player's position to the tilemap grid
+		var snapped_position = tilemap_layer.local_to_map(position)
+		print("Snapped player position: ", snapped_position)
+
+		# Get the tile index at the snapped position
+		var tile_index = tilemap_layer.get_cell_tile_data(snapped_position.x, snapped_position.y)
+
+		# Check if there is a tile at the position
+		if tile_index != -1:  # -1 means no tile at that position
+			# Assuming the tile has custom data, fetch it
+			var tile_data = tilemap_layer.get_cell_item_data(snapped_position.x, snapped_position.y)
+			if tile_data:
+				area = tile_data.get_custom_data("Area")  # Retrieve custom data
+			else:
+				print("Tile has no custom data.")
+		else:
+			print("No tile at position: ", snapped_position)
+	else:
+		print("tilemap_layer is null or invalid.")
+
+
 
 func _physics_process(delta):
+	update_tile()
 	if stop_input:
 		return
 	
@@ -49,6 +81,7 @@ func _physics_process(delta):
 			is_moving = false
 	else:
 		process_player_movement_input()
+	
 
 func process_player_movement_input():
 	input_direction = Vector2.ZERO

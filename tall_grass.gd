@@ -26,57 +26,32 @@ func _ready():
 var grass_step_effect: Node = null  # Declare outside so it's not instantiated every time
 
 func player_in_grass():
-	# Simply check if the player is inside
-	if player_inside:
-		print("Player is in the grass.")  # Debug print for player inside grass
-
-		# Check if grass_step_effect is already instantiated
-		if grass_step_effect == null:
-			# Create and instantiate the grass step effect only once
+	if player_inside == true:
+		if not grass_step_effect:
 			grass_step_effect = GrassStepEffect.instantiate()
-
-		# Check if it already has a parent, and remove it if necessary
-		if grass_step_effect.get_parent():
-			grass_step_effect.get_parent().remove_child(grass_step_effect)
-			print("Removed GrassStepEffect from its previous parent.")
-
-		# Add the grass step effect to the correct parent
-		get_parent().add_child(grass_step_effect)
-		print("Grass step effect added to the scene.")
-
-		grass_step_effect.position = position
-
-		# If it was not added yet, add it to the scene after setting the position
-		if not grass_step_effect.is_inside_tree():
 			get_tree().current_scene.add_child(grass_step_effect)
-		
-		# Create and add the grass overlay texture
-		if grass_overlay == null:
+		grass_step_effect.position = position
+		grass_step_effect.visible = true
+
+		if not grass_overlay:
 			grass_overlay = TextureRect.new()
 			grass_overlay.texture = grass_overlay_texture
-			grass_overlay.rect_position = position  # This is the simplest fix
 			get_tree().current_scene.add_child(grass_overlay)
-
-	else:
-		print("Player is not inside the grass.")  # Debug print when player is not inside grass
+		grass_overlay.position = position
 
 func player_exiting_grass():
 	player_inside = false
-	print(player_inside)
 	if is_instance_valid(grass_overlay):
-		grass_overlay.queue_free()
-		print("Grass overlay removed.")  # Debug print for removing the grass overlay
-
-	# Reset the stopped flag when the player exits the grass
-	player_stopped = false  # Reset stopped flag
+		grass_overlay.visible = false  # Just hide instead of freeing
+	if grass_step_effect:
+		grass_step_effect.visible = false  # Just hide instead of removing
+	player_stopped = false
 
 func _on_area_2d_body_entered(body: Node2D):
 	player_inside = true
-	print("Player entered the grass area.")  # Debug print for entering the grass area
-	print(player_inside)
+
 	anim_player.play("stepped")
 
 # Method to handle when the player stops
 func player_stopped_signal():
 	player_stopped = true  # Set the stopped flag to true when the player stops
-	print("Player has stopped signal received.")

@@ -438,3 +438,14 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Turn/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="Tile" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 69.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
