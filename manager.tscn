@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwsqpnqaw5i0"]
+
+[ext_resource type="Script" path="res://manager.gd" id="1_rdv3x"]
+[ext_resource type="PackedScene" uid="uid://cwad4r3u18dvb" path="res://battle.tscn" id="2_63uit"]
+
+[node name="Manager" type="Node2D"]
+script = ExtResource("1_rdv3x")
+battle_scene = ExtResource("2_63uit")
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Debug/HBoxContainer"]
+layout_mode = 2
+
+[node name="Encounter" type="Label" parent="Debug/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Encounter ar "

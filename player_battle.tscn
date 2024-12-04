@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7oexnk1qv753"]
+[gd_scene load_steps=7 format=3 uid="uid://cc1xetowsw5ni"]
 
 [ext_resource type="Script" path="res://player_battle.gd" id="1_874jd"]
 [ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="2_2dvrs"]

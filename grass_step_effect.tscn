@@ -40,7 +40,6 @@ animations = [{
 }]
 
 [node name="GrassStepEffect" type="AnimatedSprite2D"]
-scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_ssjej")
 animation = &"new"
 centered = false
