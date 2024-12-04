@@ -5,7 +5,7 @@ extends Node2D
 @onready var animplayer = $AnimationPlayer
 @onready var boss = $Sprite2D
 @onready var girlfriend = $Girlfriend
-@onready var dialogue_label = $Dialouge/Label  # Reference to the Label node for dialogue
+@onready var dialogue_label = $Dialouge/Label2  # Reference to the Label node for dialogue
 @onready var dialogue = $Dialouge
 
 var transitioning = false
@@ -16,8 +16,7 @@ var interaction_occurred = false  # Flag to track if interaction has occurred
 
 var dialogues = [
 	"Where did she go?",
-	"I need to find her.",
-	"I have to catch Digi-Pals to defeat that monster."
+	"Where did she go? I need to find her."
 ]
 var current_dialogue_index = 0
 

@@ -22,6 +22,8 @@ script/source = "extends Node2D
 @onready var girlfriend = $Girlfriend
 @onready var smoke = $cutscene/smokeparticles1
 @onready var scream_player = $Boss/AudioStreamPlayer2D
+@onready var dialogue_label = $Boss/Dialouge/Label  # Reference to the Label node for dialogue
+@onready var dialogue = $Boss/Dialouge
 
 var is_bosscutscene = false
 var has_player_entered_area = false
@@ -31,9 +33,17 @@ var is_pathfollowing = false
 var smoke_has_happened = false
 var smoke_is_happening = false
 
+var dialogues = [
+	\"HUH? WTF is that?\",
+]
+
+var current_dialogue_index = 0
+
 func _ready():
 	boss.visible = false  # Hide the boss initially
 	smoke.visible = false
+	dialogue_label.visible = false  # Hide dialogue initially
+	dialogue.visible = false
 
 func _physics_process(delta):
 	if is_bosscutscene:
@@ -71,6 +81,7 @@ func cutsceneending():
 	player.get_node(\"Camera2D\").enabled = true
 	$cutscene.visible = false
 	boss.visible = true
+	start_inner_dialogue()
 
 func toggle_smoke() -> void:
 	# Start smoke effect
@@ -83,6 +94,23 @@ func toggle_smoke() -> void:
 	$cutscene/smokeparticles1.visible = false
 	smoke_has_happened = true
 	smoke_is_happening = false
+
+func start_inner_dialogue():
+	dialogue.visible = true
+	dialogue_label.visible = true
+	show_next_dialogue()
+	
+func _input(event):
+	if event.is_action_pressed(\"ui_accept\"):
+		show_next_dialogue()
+		
+func show_next_dialogue():
+	if current_dialogue_index < dialogues.size():
+		dialogue_label.text = dialogues[current_dialogue_index]
+		current_dialogue_index += 1
+	else:
+		dialogue_label.visible = false  # Hide dialogue after all lines are shown
+		dialogue.visible = false
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjrbi"]
@@ -1613,9 +1641,9 @@ size = Vector2(48, 344)
 
 [sub_resource type="Curve2D" id="Curve2D_rpuen"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 208, 176, 0, 0, 0, 0, 281.77, 448, 0, 0, 0, 0, 473.027, 416, 0, 0, 0, 0, 475.717, 224.592, 0, 0, 0, 0, 541.333, -16, 0, 0, 0, 0, 305.113, 35.5555, 0, 0, 0, 0, 462.593, 224.592)
+"points": PackedVector2Array(0, 0, 0, 0, 208, 176, 0, 0, 0, 0, 281.77, 448, 0, 0, 0, 0, 488.84, 413.629, 0, 0, 0, 0, 396.977, 207.407, 0, 0, 0, 0, 541.333, 121.481, 0, 0, 0, 0, 475.717, -33.1852, 0, 0, 0, 0, 318.236, -16, 0, 0, 0, 0, 396.977, 207.407)
 }
-point_count = 7
+point_count = 8
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8en0i"]
 particle_flag_rotate_y = true
@@ -1629,7 +1657,7 @@ radial_accel_min = 0.999998
 radial_accel_max = 0.999998
 
 [node name="forest2" type="Node2D"]
-position = Vector2(-64, 48)
+position = Vector2(-32, -64)
 script = SubResource("GDScript_awkut")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
@@ -1680,10 +1708,10 @@ position = Vector2(-32, 224)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(304, 0)
-limit_left = -128
-limit_top = -20
+limit_left = -176
+limit_top = -144
 limit_right = 580
-limit_bottom = 550
+limit_bottom = 448
 
 [node name="Boss" type="Node2D" parent="."]
 texture_filter = 1
@@ -1693,7 +1721,7 @@ script = ExtResource("5_i65v2")
 
 [node name="Girlfriend" type="Node2D" parent="Boss"]
 texture_filter = 1
-position = Vector2(-2085.33, -102.4)
+position = Vector2(-1533.33, -153.6)
 scale = Vector2(1.20544, 0.919882)
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss/Girlfriend"]
@@ -1740,14 +1768,15 @@ Let me know if you find anything
 over there XO!"
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
+position = Vector2(-367.999, 51.2)
 texture = ExtResource("4_xqr48")
 
 [node name="Area2D" type="Area2D" parent="Boss"]
-position = Vector2(-2024, -665.6)
+position = Vector2(-2392, -665.6)
 scale = Vector2(3.83333, 3.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
-position = Vector2(528, 213)
+position = Vector2(528.001, 224)
 shape = SubResource("RectangleShape2D_7jxsr")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Boss"]
@@ -1775,6 +1804,25 @@ scale = Vector2(1.63585, 1.21581)
 texture = ExtResource("10_r78hd")
 
 [node name="Label" type="Label" parent="Boss/Dialouge"]
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.222
+anchor_right = 0.892
+anchor_bottom = 0.775
+offset_left = -317.492
+offset_top = -109.822
+offset_right = -130.572
+offset_bottom = -67.4866
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_ln2c0")
+theme_override_font_sizes/font_size = 30
+
+[node name="Label2" type="Label" parent="Boss/Dialouge"]
 anchors_preset = -1
 anchor_left = 0.064
 anchor_top = 0.222
@@ -1830,7 +1878,7 @@ position = Vector2(7.90742e-06, 2.13905e-06)
 zoom = Vector2(4, 3)
 
 [node name="smokeparticles1" type="GPUParticles2D" parent="cutscene"]
-position = Vector2(528, 240)
+position = Vector2(432, 240)
 amount = 800
 process_material = SubResource("ParticleProcessMaterial_8en0i")
 texture = ExtResource("5_oiu3b")

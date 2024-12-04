@@ -1030,12 +1030,39 @@ script = SubResource("GDScript_320wf")
 [node name="Grasses" type="Node" parent="."]
 
 [node name="Tall Grass" parent="Grasses" instance=ExtResource("7_5ob18")]
+texture_filter = 1
 position = Vector2(565, 166)
 
+[node name="Tall Grass" parent="Grasses/Tall Grass" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(13, 26)
+
+[node name="Tall Grass2" parent="Grasses/Tall Grass" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(-12, 26)
+
+[node name="Tall Grass3" parent="Grasses/Tall Grass" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(-37, 26)
+
+[node name="Tall Grass" parent="Grasses/Tall Grass/Tall Grass3" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(18, 16)
+
+[node name="Tall Grass2" parent="Grasses/Tall Grass/Tall Grass3" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(-7, 16)
+
+[node name="Tall Grass3" parent="Grasses/Tall Grass/Tall Grass3" instance=ExtResource("7_5ob18")]
+texture_filter = 1
+position = Vector2(-32, 16)
+
 [node name="Tall Grass2" parent="Grasses" instance=ExtResource("7_5ob18")]
+texture_filter = 1
 position = Vector2(540, 166)
 
 [node name="Tall Grass3" parent="Grasses" instance=ExtResource("7_5ob18")]
+texture_filter = 1
 position = Vector2(515, 166)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
