@@ -37,24 +37,24 @@ var distance_in_pixel : float = 0.0:
 		var step = distance_in_pixel / step_size
 		
 		%Distance.text = "%d" % step
-		#if step >= Manager.encounter_number:
-			#set_physics_process(false)
+		if step >= Manager.encounter_number:
+			set_physics_process(false)
 			
-			#Manager.save_player_data(self)
-			#Manager.change_scene()
+			Manager.save_player_data(self)
+			Manager.change_scene()
  
 func _ready():
 	anim_tree.active = true
 	initial_position = position
-	#position = Manager.player_last_position
+	position = Manager.player_last_position
 
-#func update_tile():
-	#var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))
-	#if tiledata:
-		#area = tiledata.get_custom_data("Area")
+func update_tile():
+	var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))
+	if tiledata:
+		area = tiledata.get_custom_data("Area")
  
 func _physics_process(delta):
-	#update_tile()
+	update_tile()
 	
 	
 	if stop_input:

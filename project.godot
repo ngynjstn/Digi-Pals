@@ -24,6 +24,7 @@ buses/default_bus_layout=""
 SignalManager="*res://Global/signal_manager.gd"
 GameManager="*res://Global/game_manager.gd"
 Global="*res://Global/global.gd"
+Manager="*res://manager.tscn"
 
 [display]
 
