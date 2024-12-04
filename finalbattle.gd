@@ -133,8 +133,8 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 func on_enemy_turn() -> void:
 	if enemy.hp > 0:
-		show_dialog("STRONG BIDOOF used REVENGE!")
-		SignalManager.player_hp_changed.emit(5)
+		show_dialog("STRONG BIDOOF used !")
+		SignalManager.emit_signal("player_hp_changed", 5)
 		enemy.animation_player.play("attack")
 
 func on_player_animation_finished() -> void:
