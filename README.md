@@ -118,8 +118,8 @@ Before launching the game, ensure the following are installed:
 
 ## Project Timeline  
 
-1. **Initial Planning:** Completed in June 2024.  
-2. **Core Mechanics Development:** Finalized in September 2024.  
+1. **Initial Planning:** Completed  
+2. **Core Mechanics Development:** Finalized in October 2024.  
 3. **Battle System Implementation:** Integrated by October 2024.  
 4. **Testing and Debugging:** Completed in November 2024.  
 5. **Final Review:** Scheduled for December 4, 2024.  
