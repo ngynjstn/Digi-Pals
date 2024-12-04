@@ -1,56 +1,141 @@
-# Digi-Pals
+# Digi-Pals: Comprehensive Documentation  
 
-## Project Overview
-Digi-Pals is a prototype development project aimed at creating a small, playable Pokémon-inspired game using the Godot game engine. The focus is on implementing core gameplay mechanics such as character creation, exploring an environment, and engaging in turn-based battles.
+**Digi-Pals** is a Pokémon-inspired RPG that combines traditional mechanics with unique storytelling and gameplay elements. Built using the **Godot Engine**, this game offers an original narrative, strategic turn-based combat, and custom-designed assets. Players journey through a rich world filled with challenges, culminating in a climactic final boss encounter.  
 
-## General Objective
-The primary goal is to build a functional prototype that showcases the initial gameplay loop, including:
-- Waking up in the player's house.
-- Selecting a starter creature.
-- Exploring the surrounding area and encountering wild creatures.
-- Engaging in basic turn-based battles.
+---
 
-## Specific Objectives
-1. **Gameplay Loop Implementation:**
-   - Implement a simple, interactive gameplay loop with core mechanics.
-2. **Character and Environment Design:**
-   - Create and design characters, creatures, and the initial game map.
-3. **Core Mechanics:**
-   - Develop a turn-based battle system and random encounters.
-4. **Database Integration:**
-   - Use a database to manage creature stats, moves, and player inventory.
-5. **Testing and Debugging:**
-   - Test the prototype for bugs and performance issues.
+## Overview  
 
-## Team Members
-- **Dan Nguyen** - Project Manager
-- **Justin Nguyen** - Lead Developer
-- **Danny Tran** - Game Designer
-- **Keaton** - Database Developer
-- **Mary** - QA Specialist
+Digi-Pals incorporates classic RPG elements while introducing fresh gameplay and narrative features. From a fully customized start menu to cinematic cutscenes, players are immersed in a world where Digi-Pals are central to exploration, battles, and personal growth.  
 
-## Project Setup
-### Prerequisites
-- [Godot Engine](https://godotengine.org/download)
-- [Git](https://git-scm.com/downloads)
-- [SQLite](https://www.sqlite.org/download.html) (or any other preferred database system)
+Key innovations include:  
+- Unique character introductions and origin storytelling.  
+- Seamless transitions between exploration and battles.  
+- A strategic turn-based combat system with audio ambiance for an engaging experience.  
+- Dynamic boss cutscenes featuring dialogue that enhances the story.  
 
-### Installation
-1. Clone the repository:
-	```bash
-	git clone https://github.com/your-username/Digi-Pals.git
-	```
-2. Open the project in Godot:
-	- Launch Godot and import the project from the cloned directory.
-3. Set up the database:
-	- Create a new SQLite database and add tables for creatures, moves, and inventory.
+---
 
-## Features
-- Character creation and starter selection.
-- Exploration of a small environment with interactive NPCs.
-- Basic turn-based battles with creatures.
-- Simple UI for health and move selection.
+## Key Features  
 
-## Communication Channels
-- **Discord:** For daily/weekly standups and team discussions.
-- **Azure DevOps:** For project management, sprint planning, and task tracking.
+### Story and Cutscenes  
+- **Start Menu:** A polished and intuitive menu introduces players to the game.  
+- **Introduction Cutscene:** Professor Joe explains the origins of Digi-Pals and sets the stage for the adventure.  
+- **Character Interaction:** Characters are introduced through cinematic storytelling.  
+- **Boss Encounters:** Dramatic cutscenes with compelling dialogue immerse players in key moments.  
+
+### Gameplay Mechanics  
+- **Exploration:** Traverse four diverse maps filled with secrets and challenges.  
+- **Digi-Pal Selection:** Choose your starter companion, each with unique attributes and moves.  
+- **Turn-Based Combat:**  
+  - Strategically select moves during battles to gain an advantage.  
+  - Defeat wild Digi-Pals and scripted bosses to advance.  
+- **Final Boss Fight:** Confront the ultimate challenge in a suspenseful climax.  
+
+### Customization and Originality  
+- Hand-drawn environments and custom-designed Digi-Pals.  
+- Unique user interfaces for battles, health bars, and item management.  
+- Atmospheric background music and sound effects tailored to enhance immersion.  
+
+---
+
+## Getting Started  
+
+### Prerequisites  
+Before launching the game, ensure the following are installed:  
+- **Godot Engine** (v4.0 or later)  
+- **Git** for cloning the repository  
+
+### Installation Steps  
+1. **Clone the Repository:**  
+   ```bash
+   git clone https://github.com/your-username/Digi-Pals.git
+   ```  
+
+2. **Import the Project into Godot:**  
+   - Open the Godot Engine.  
+   - Import the project directory.  
+
+3. **Database Setup:**  
+   - Use SQLite to set up tables for Digi-Pals, moves, and inventory.  
+   - Populate these tables with sample data from the `data` folder.  
+
+4. **Launch the Game:**  
+   - Open the project in Godot.  
+   - Click **Start** to begin your adventure.  
+
+---
+
+## Gameplay Guide  
+
+### Exploration  
+- Navigate through unique maps using **arrow keys** or **WASD**.  
+- Interact with NPCs for quests and hints.  
+
+### Combat  
+- Battles initiate upon encountering wild Digi-Pals or bosses.  
+- Select moves strategically to defeat your opponent.  
+- Victory earns XP, allowing Digi-Pals to level up and learn new moves.  
+
+### Objectives  
+- Complete quests, explore the maps, and gather resources.  
+- Progress through the narrative by defeating bosses and solving mysteries.  
+- Prepare for the ultimate challenge against the final boss.  
+
+---
+
+## Development Team  
+
+- **Dan Nguyen:** Project Manager, overseeing timeline and features.  
+- **Justin Nguyen:** Lead Developer, responsible for gameplay mechanics and AI.  
+- **Danny Tran:** Map Designer, creating immersive environments and encounters.  
+- **Keaton:** Provided ideas during brainstorming.  
+- **Mary:** Supported initial planning discussions.  
+
+---
+
+## Testing and Quality Assurance  
+
+### Core Areas of Testing  
+- **Gameplay Mechanics:** Ensure player movement, interactions, and battle systems are smooth and intuitive.  
+- **Cutscene Flow:** Validate dialogue sequencing, transitions, and scene changes.  
+- **UI Responsiveness:** Ensure scaling and responsiveness on different devices.  
+- **Edge Case Scenarios:** Check boundary conditions, collision handling, and unexpected player actions.  
+
+### Tools and Techniques  
+- **Automated Testing:** CI/CD pipelines to maintain stability during updates.  
+- **User Feedback:** Iterative testing with real players for actionable insights.  
+
+---
+
+## Performance and Scalability  
+
+- **Optimized Rendering:** Efficient 2D rendering for smooth gameplay on low-end devices.  
+- **Memory Management:** Use of object pooling to reduce resource consumption.  
+- **Expandable Design:** Modular architecture allows for future updates and expansions.  
+
+---
+
+## Project Timeline  
+
+1. **Initial Planning:** Completed in June 2024.  
+2. **Core Mechanics Development:** Finalized in September 2024.  
+3. **Battle System Implementation:** Integrated by October 2024.  
+4. **Testing and Debugging:** Completed in November 2024.  
+5. **Final Review:** Scheduled for December 4, 2024.  
+
+---
+
+## Feedback and Support  
+
+We encourage feedback to improve Digi-Pals and address any issues.  
+- Report bugs or suggest features via our [GitHub Repository](https://github.com/your-username/Digi-Pals).  
+- Join our Discord server for real-time support and discussions.  
+
+---
+
+## Conclusion  
+
+Digi-Pals is more than a prototype—it’s a full RPG experience blending exploration, storytelling, and strategic combat. From custom cutscenes to engaging battles, the game represents a collaborative effort to push creative boundaries.  
+
+We hope you enjoy the journey through the world of Digi-Pals. Your adventure awaits!  
