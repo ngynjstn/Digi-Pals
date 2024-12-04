@@ -8,7 +8,6 @@ signal player_stopped_signal
 const TILE_SIZE = 16
 const TURN_DURATION = 0.5  # Duration for the turn animation
 
-@onready var tilemap = get_tree().current_scene.find_child("TileMap")
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
 
@@ -18,11 +17,6 @@ enum FacingDirection { LEFT, RIGHT, UP, DOWN }
 var player_state = PlayerState.IDLE
 var facing_direction = FacingDirection.DOWN
 
-var area : String = "":
-	set(value):
-		area = value
-		%Tile.text = value
-		
 var initial_position = Vector2(0, 0)
 var input_direction = Vector2.ZERO
 var is_moving = false
@@ -30,34 +24,11 @@ var stop_input: bool = false
 var percent_moved_to_next_tile = 0.0
 var turn_time = 0.0  # Track time spent turning
 
-var step_size : int = 50
-
-var distance_in_pixel : float = 0.0:
-	set(value):
-		distance_in_pixel = value
-		var step = distance_in_pixel / step_size
-		
-		%Distance.text = "%d" % step
-		if step >= Manager.encounter_number:
-			set_physics_process(false)
-			
-			Manager.save_player_data(self)
-			Manager.change_scene()
- 
 func _ready():
 	anim_tree.active = true
 	initial_position = position
-	position = Manager.player_last_position
 
-func update_tile():
-	var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))
-	if tiledata:
-		area = tiledata.get_custom_data("Area")
- 
 func _physics_process(delta):
-	update_tile()
-	
-	
 	if stop_input:
 		return
 	
@@ -81,7 +52,7 @@ func _physics_process(delta):
 
 func process_player_movement_input():
 	input_direction = Vector2.ZERO
-	
+
 	# Check horizontal input first to prevent diagonal movement
 	if Input.is_action_pressed("ui_right"):
 		input_direction.x = 1
@@ -136,8 +107,7 @@ func need_to_turn() -> bool:
 func move(delta):
 	# Calculate the step for this frame
 	var step = input_direction * walk_speed * delta
-	if area == 'Grass':
-		distance_in_pixel += position.distance_to(initial_position)
+
 	# Attempt to move using move_and_collide()
 	var collision = move_and_collide(step)
 

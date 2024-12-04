@@ -438,20 +438,3 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Turn/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
-
-[node name="Tile" type="Label" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
-offset_left = -26.0
-offset_top = -32.0
-offset_right = 74.0
-offset_bottom = -26.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Distance" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = -2.0
-offset_top = 31.0
-offset_right = 38.0
-offset_bottom = 37.0

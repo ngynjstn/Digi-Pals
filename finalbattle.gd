@@ -20,6 +20,7 @@ var text_num: int = 0
 var is_dialog_finished: bool = false
 var is_menu_visible: bool = false
 var begin_battle: bool = false
+var player_turn: bool = true
 
 #var thunder_scene = preload("res://Scenes/Battle/ThunderShock.tscn")
 
@@ -56,13 +57,17 @@ func _process(_delta: float) -> void:
 
 func on_enemy_dead() -> void:
 	# exit battle
-	show_dialog("Enemy RATTATA fainted")
+	show_dialog("FINAL BIDOOF fainted")
+	click_to_continue.visible = false
 	anim.play("fade_out")
+	
 
 func on_player_dead() -> void:
 	show_dialog("Player blacked out!")
+	anim.play("hide")
 	anim.play("fade_out")
-
+	
+	
 func move_menu_arrow(x: float, y: float) -> void:
 	# position the arrow on the menu 
 	menu_arrow.global_position.x = x
@@ -79,7 +84,7 @@ func show_dialog(custom_text: String) -> void:
 	text_timer.wait_time = text_speed
 	dialog.text = custom_text  # Set the text before starting the animation
 	next_text()
-
+	
 func next_text() -> void:
 	# animate the dialog text
 	if text_num >= dialog.text.length():
@@ -107,16 +112,18 @@ func _on_attack_btn_1_pressed() -> void:
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
 	SignalManager.emit_signal("enemy_hp_changed", 10)
+	on_enemy_turn()
 
 func _on_attack_btn_2_pressed() -> void:
 	is_menu_visible = false
 	show_dialog("FIRE used " + attack2_btn.text)
-	#player.animation_player.play("thunder")
+	player.animation_player.play("thunder")
 	#var thunder_instance = thunder_scene.instantiate()
 	#canvas.add_child(thunder_instance)
 	#thunder_instance.position = $CanvasLayer/FX_pos.position    
 	await get_tree().create_timer(1.0).timeout 
 	SignalManager.emit_signal("enemy_hp_changed", 15)
+	on_enemy_turn()
 
 func _on_run_btn_pressed() -> void:
 	# exit battle
@@ -133,12 +140,13 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 func on_enemy_turn() -> void:
 	if enemy.hp > 0:
-		show_dialog("STRONG BIDOOF used !")
-		SignalManager.emit_signal("player_hp_changed", 5)
-		enemy.animation_player.play("attack")
+		show_dialog("BIDOOF used REVENGE!")
+		SignalManager.emit_signal("player_hp_changed", 20)
+		await get_tree().create_timer(1.0).timeout
+		#enemy.animation_player.play("attack")
 
 func on_player_animation_finished() -> void:
-	enemy.animation_player.play("hit")
+	#enemy.animation_player.play("hit")
 	await get_tree().create_timer(1.0).timeout 
 	GameManager.turn = "enemy"
 	on_enemy_turn()

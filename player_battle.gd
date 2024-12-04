@@ -22,8 +22,6 @@ func _process(delta):
 		print("player is dead")
 		SignalManager.emit_signal("player_dead")
 		is_alive = false
-	else:
-		is_alive = true
 
 func on_player_hp_changed(new_hp):
 	hp -= new_hp
