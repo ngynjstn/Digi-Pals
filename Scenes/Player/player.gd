@@ -23,6 +23,11 @@ var area : String = "":
 		area = value
 		%Tile.text = value
 		
+var pal : String = "":
+	set(value):
+		pal = value
+		%Pal.text = value
+		
 var initial_position = Vector2(0, 0)
 var input_direction = Vector2.ZERO
 var is_moving = false
@@ -41,17 +46,32 @@ var distance_in_pixel : float = 0.0:
 			set_physics_process(false)
 			
 			Manager.save_player_data(self)
-			Manager.change_scene()
+			Manager.save_player_pal(pal)
+			if pal == "Green":
+				Manager.change_scenegreen()
+			if pal == "Red":
+				Manager.change_scenered()
+			if pal == "Purple":
+				Manager.change_scenepurple()
  
 func _ready():
 	anim_tree.active = true
 	initial_position = position
 	position = Manager.player_last_position
+	
+	pal = Manager.load_player_pal()  # Restore the saved pal value
+	%Pal.text = pal  # Update any UI element with the restored value
+	
+	print (tilemap.get_cell_tile_data(0,tilemap.local_to_map(position)))
 
 func update_tile():
-	var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))
-	if tiledata:
-		area = tiledata.get_custom_data("Area")
+	if tilemap:
+		var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))
+		var tiledatap = tilemap.get_cell_tile_data(3,tilemap.local_to_map(position))
+		if tiledata:
+			area = tiledata.get_custom_data("Area")
+			if tiledatap:
+				pal = tiledatap.get_custom_data("Pal")
  
 func _physics_process(delta):
 	update_tile()

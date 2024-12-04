@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1rmy86wvhc4n"]
+[gd_scene load_steps=18 format=3 uid="uid://c1rmy86wvhc4n"]
 
 [ext_resource type="Script" path="res://Scenes/Final Battle/finalbattle.gd" id="1_21hyk"]
+[ext_resource type="PackedScene" uid="uid://cuex2bxegnsuh" path="res://Scenes/Training Battle/Gym.tscn" id="2_acqle"]
 [ext_resource type="Texture2D" uid="uid://beo763aka7bh0" path="res://Assets/Battle/battlebkrg.jpg" id="2_rhyoi"]
 [ext_resource type="PackedScene" uid="uid://caaoi1h1v3ajr" path="res://Assets/Battle/BATTLEUI/trainingmonster.tscn" id="3_6lyah"]
 [ext_resource type="PackedScene" uid="uid://b7oexnk1qv753" path="res://Assets/Battle/BATTLEUI/redplayer_battle.tscn" id="4_8kpsn"]
@@ -178,6 +179,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_21hyk")
+world = ExtResource("2_acqle")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

@@ -15,6 +15,7 @@ extends Control
 @onready var canvas = $CanvasLayer
 
 @export var text_speed: float = 0.04
+@export var world : PackedScene
 
 var text_num: int = 0
 var is_dialog_finished: bool = false
@@ -60,12 +61,13 @@ func on_enemy_dead() -> void:
 	show_dialog("ENEMY fainted")
 	click_to_continue.visible = false
 	anim.play("fade_out")
-	
+	get_tree().change_scene_to_packed(world)
 
 func on_player_dead() -> void:
 	show_dialog("Player blacked out!")
 	anim.play("hide")
 	anim.play("fade_out")
+	get_tree().change_scene_to_packed(world)
 	
 	
 func move_menu_arrow(x: float, y: float) -> void:
@@ -109,7 +111,7 @@ func next_text() -> void:
 func _on_attack_btn_1_pressed() -> void:
 	is_menu_visible = false
 	show_dialog("YOU used " + attack1_btn.text)
-	player.animation_player.play("tackle")
+	#player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
 	SignalManager.emit_signal("enemy_hp_changed", 10)
 	on_enemy_turn()
@@ -117,7 +119,7 @@ func _on_attack_btn_1_pressed() -> void:
 func _on_attack_btn_2_pressed() -> void:
 	is_menu_visible = false
 	show_dialog("YOU used " + attack2_btn.text)
-	player.animation_player.play("thunder")
+	#player.animation_player.play("thunder")
 	#var thunder_instance = thunder_scene.instantiate()
 	#canvas.add_child(thunder_instance)
 	#thunder_instance.position = $CanvasLayer/FX_pos.position    
@@ -129,7 +131,7 @@ func _on_run_btn_pressed() -> void:
 	# exit battle
 	show_dialog("Ran away safely")
 	anim.play("fade_out")
-
+	get_tree().change_scene_to_packed(world)
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_out":
 		GameManager.is_battle = false

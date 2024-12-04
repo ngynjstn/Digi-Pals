@@ -3,8 +3,10 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var attack_damage = 4
 @onready var hp_bar = $PlayerHPBar
-@export var max_hp = 25
-var hp = 25
+@export var max_hp = 35
+@export var world : PackedScene 
+
+var hp = 35
 var is_alive = true
 
 func _ready():
