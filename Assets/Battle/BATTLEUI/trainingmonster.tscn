@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://caaoi1h1v3ajr"]
+
+[ext_resource type="Script" path="res://Assets/Battle/BATTLEUI/finalboss.gd" id="1_kp38e"]
+[ext_resource type="Texture2D" uid="uid://b7akwgdi3pdgn" path="res://Assets/Battle/enemy_ui.png" id="2_wp5af"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="3_cs0j4"]
+[ext_resource type="Texture2D" uid="uid://12rb51qx3jp2" path="res://Assets/Battle/under.png" id="4_qldsk"]
+[ext_resource type="Texture2D" uid="uid://bosvvlv1dhfgj" path="res://Assets/Battle/fill.png" id="5_e38me"]
+[ext_resource type="Texture2D" uid="uid://bk4vlu8618gve" path="res://Assets/Battle/enemy1.webp" id="6_cdeds"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_kp38e")
+
+[node name="EnemyUI" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(139.028, 42.5309)
+scale = Vector2(2.29357, 2.34182)
+texture = ExtResource("2_wp5af")
+
+[node name="EnemyName" type="Label" parent="."]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_cs0j4")
+theme_override_font_sizes/font_size = 18
+text = "BEARIUS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyLV" type="Label" parent="."]
+texture_filter = 1
+offset_left = 192.0
+offset_top = 16.0
+offset_right = 288.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 1)
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_cs0j4")
+theme_override_font_sizes/font_size = 23
+text = "2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyHPBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 112.0
+offset_top = 48.0
+offset_right = 164.0
+offset_bottom = 55.0
+scale = Vector2(2, 2)
+max_value = 25.0
+value = 25.0
+texture_under = ExtResource("4_qldsk")
+texture_progress = ExtResource("5_e38me")
+texture_progress_offset = Vector2(2, 2)
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(404.421, 95.6364)
+scale = Vector2(1.45315, 1.46281)
+texture = ExtResource("6_cdeds")

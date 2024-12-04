@@ -1,14 +1,14 @@
 [gd_scene load_steps=31 format=4 uid="uid://ct4twccgasdm7"]
 
-[ext_resource type="Texture2D" uid="uid://b532ucgkanhb7" path="res://WorldMap/terrain2.png" id="1_55wwg"]
+[ext_resource type="Texture2D" uid="uid://b532ucgkanhb7" path="res://Assets/Map/terrain2.png" id="1_55wwg"]
 [ext_resource type="Script" path="res://finalvalley.gd" id="1_68vh4"]
-[ext_resource type="Texture2D" uid="uid://b3fu4i6x67yb6" path="res://WorldMap/terrain1.png" id="2_opvyp"]
+[ext_resource type="Texture2D" uid="uid://b3fu4i6x67yb6" path="res://Assets/Map/terrain1.png" id="2_opvyp"]
 [ext_resource type="Texture2D" uid="uid://b4ipw2drbaafw" path="res://Assets/Tilesets/grass1_tileset.png" id="3_k72ig"]
 [ext_resource type="Texture2D" uid="uid://nv4iividqmk5" path="res://Assets/Water/WaterTexture.tres" id="4_jmc2e"]
-[ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://WorldMap/worldmap.png" id="5_voti7"]
-[ext_resource type="Texture2D" uid="uid://0y4i7ses5ick" path="res://WorldMap/house6.png" id="6_1jw3r"]
-[ext_resource type="Texture2D" uid="uid://dr8h47lnlkal3" path="res://WorldMap/Game Boy Advance - Pokemon Emerald - Faraway Island.png" id="7_lefqx"]
-[ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://player.tscn" id="8_6nb5l"]
+[ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://Assets/Map/worldmap.png" id="5_voti7"]
+[ext_resource type="Texture2D" uid="uid://0y4i7ses5ick" path="res://Assets/Map/house6.png" id="6_1jw3r"]
+[ext_resource type="Texture2D" uid="uid://dr8h47lnlkal3" path="res://Assets/Map/Game Boy Advance - Pokemon Emerald - Faraway Island.png" id="7_lefqx"]
+[ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://Scenes/Player/player.tscn" id="8_6nb5l"]
 [ext_resource type="Texture2D" uid="uid://lj0vymfqb7hu" path="res://Assets/Player/girlfriend-removebg-preview.png" id="10_y30fn"]
 [ext_resource type="Texture2D" uid="uid://d1w40f576c5ie" path="res://Assets/Player/finalboss.webp" id="11_lla4h"]
 [ext_resource type="AudioStream" uid="uid://csdyoe1sy47s3" path="res://Assets/Player/115-kangaskhan.mp3" id="12_e1rpp"]
@@ -4481,8 +4481,6 @@ tile_set = SubResource("TileSet_bxvke")
 
 [node name="Player" parent="." instance=ExtResource("8_6nb5l")]
 position = Vector2(768, 400)
-walk_speed = null
-jump_speed = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(96, 32)

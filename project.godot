@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Digi-Pals"
-run/main_scene="res://finalvalley.tscn"
+run/main_scene="res://Scenes/Training Battle/Gym.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ buses/default_bus_layout=""
 
 SignalManager="*res://Global/signal_manager.gd"
 GameManager="*res://Global/game_manager.gd"
+Global="*res://Global/global.gd"
 
 [display]
 

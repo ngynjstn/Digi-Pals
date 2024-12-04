@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://tihy0uu774uy"]
+
+[ext_resource type="Script" path="res://Assets/Battle/BATTLEUI/player_battle.gd" id="1_7esa5"]
+[ext_resource type="Texture2D" uid="uid://bwj2jtj033q4m" path="res://Assets/Battle/player_ui.png" id="2_pxj1g"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="3_l7ev6"]
+[ext_resource type="Texture2D" uid="uid://12rb51qx3jp2" path="res://Assets/Battle/under.png" id="4_sx1m6"]
+[ext_resource type="Texture2D" uid="uid://bosvvlv1dhfgj" path="res://Assets/Battle/fill.png" id="5_qk3x4"]
+[ext_resource type="Texture2D" uid="uid://bt4w8fshd825" path="res://Assets/Battle/green_monster.webp" id="6_ir1o2"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_7esa5")
+
+[node name="PlayerUI" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(435.333, 206.769)
+scale = Vector2(2.60495, 2.46154)
+texture = ExtResource("2_pxj1g")
+
+[node name="PlayerName" type="Label" parent="."]
+texture_filter = 1
+offset_left = 352.0
+offset_top = 176.0
+offset_right = 464.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.815686, 0.815686, 0.784314, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_l7ev6")
+theme_override_font_sizes/font_size = 25
+text = "SHENLONG
+"
+
+[node name="PlayerLv" type="Label" parent="."]
+texture_filter = 1
+offset_left = 544.0
+offset_top = 160.0
+offset_right = 584.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_l7ev6")
+theme_override_font_sizes/font_size = 19
+text = "3
+"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerHPBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 432.0
+offset_top = 208.0
+offset_right = 484.0
+offset_bottom = 215.0
+scale = Vector2(2, 2)
+max_value = 25.0
+value = 25.0
+texture_under = ExtResource("4_sx1m6")
+texture_progress = ExtResource("5_qk3x4")
+texture_progress_offset = Vector2(2, 2)
+
+[node name="Poke" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(184, 184.099)
+scale = Vector2(1.83333, 1.80247)
+texture = ExtResource("6_ir1o2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
