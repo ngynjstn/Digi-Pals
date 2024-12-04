@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ally" load_steps=3 format=3 uid="uid://c8p8y870cutk8"]
+
+[ext_resource type="Script" path="res://DigiPal.gd" id="1_kcwis"]
+[ext_resource type="Texture2D" uid="uid://bjfivb3fnfea1" path="res://Assets/Battle/firemonsterbackshots.webp" id="2_thlk3"]
+
+[resource]
+script = ExtResource("1_kcwis")
+name = "fire"
+texture = ExtResource("2_thlk3")

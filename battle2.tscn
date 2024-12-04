@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8xaaojqgitvx"]
+[gd_scene load_steps=17 format=3 uid="uid://b5lbdd3e8icmo"]
 
-[ext_resource type="Texture2D" uid="uid://beo763aka7bh0" path="res://battlebkrg.jpg" id="1_i8ryw"]
-[ext_resource type="Script" path="res://finalbattle.gd" id="1_w2bqd"]
-[ext_resource type="PackedScene" uid="uid://cwk44hnwxbvgb" path="res://enemy.tscn" id="2_wvkri"]
-[ext_resource type="PackedScene" uid="uid://b7oexnk1qv753" path="res://Player_battles/player_battle.tscn" id="4_c25xt"]
-[ext_resource type="Texture2D" uid="uid://b6cqhftkttfbl" path="res://Assets/UI/menu.png" id="4_diktm"]
-[ext_resource type="PackedScene" path="res://texture_button.tscn" id="5_xn6tu"]
-[ext_resource type="Texture2D" uid="uid://dt5x2wyhu3838" path="res://Assets/Battle/arrow.png" id="6_j30p6"]
-[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="7_lgn5t"]
-[ext_resource type="Texture2D" uid="uid://dy0akh7xyymeo" path="res://Assets/Battle/dialog_box.png" id="8_rwevv"]
-[ext_resource type="Texture2D" uid="uid://cnekyupmyr8ah" path="res://Assets/Battle/fade.png" id="10_rok1x"]
+[ext_resource type="Script" path="res://finalbattle.gd" id="1_ejbro"]
+[ext_resource type="Texture2D" uid="uid://beo763aka7bh0" path="res://battlebkrg.jpg" id="2_trm71"]
+[ext_resource type="PackedScene" uid="uid://cwk44hnwxbvgb" path="res://enemy.tscn" id="3_o64lc"]
+[ext_resource type="PackedScene" uid="uid://b7oexnk1qv753" path="res://Player_battles/player_battle.tscn" id="4_ixgdp"]
+[ext_resource type="Texture2D" uid="uid://b6cqhftkttfbl" path="res://Assets/UI/menu.png" id="5_20sar"]
+[ext_resource type="PackedScene" path="res://texture_button.tscn" id="6_6xgfs"]
+[ext_resource type="Texture2D" uid="uid://dt5x2wyhu3838" path="res://Assets/Battle/arrow.png" id="7_6qpe2"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="8_8ko3o"]
+[ext_resource type="Texture2D" uid="uid://dy0akh7xyymeo" path="res://Assets/Battle/dialog_box.png" id="9_ghkry"]
+[ext_resource type="Texture2D" uid="uid://cnekyupmyr8ah" path="res://Assets/Battle/fade.png" id="10_p7c8q"]
 
 [sub_resource type="Animation" id="Animation_we6v4"]
 length = 0.001
@@ -177,7 +177,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w2bqd")
+script = ExtResource("1_ejbro")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -186,14 +186,14 @@ layer = 2
 texture_filter = 1
 position = Vector2(320, 136.5)
 scale = Vector2(0.606667, 0.501852)
-texture = ExtResource("1_i8ryw")
+texture = ExtResource("2_trm71")
 
-[node name="Enemy" parent="CanvasLayer" instance=ExtResource("2_wvkri")]
+[node name="Enemy" parent="CanvasLayer" instance=ExtResource("3_o64lc")]
 
 [node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(448, 96)
 
-[node name="Player" parent="CanvasLayer" groups=["player_battle"] instance=ExtResource("4_c25xt")]
+[node name="Player" parent="CanvasLayer" groups=["player_battle"] instance=ExtResource("4_ixgdp")]
 max_hp = null
 
 [node name="UI" type="Control" parent="CanvasLayer"]
@@ -218,9 +218,9 @@ offset_bottom = 40.0
 texture_filter = 1
 position = Vector2(244, 320)
 scale = Vector2(3.93333, 2)
-texture = ExtResource("4_diktm")
+texture = ExtResource("5_20sar")
 
-[node name="AttackBtn1" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("5_xn6tu")]
+[node name="AttackBtn1" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_6xgfs")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -237,7 +237,7 @@ mouse_default_cursor_shape = 2
 texture_normal = null
 text = "SLASH"
 
-[node name="AttackBtn2" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("5_xn6tu")]
+[node name="AttackBtn2" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_6xgfs")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -254,7 +254,7 @@ mouse_default_cursor_shape = 2
 texture_normal = null
 text = "GROWL"
 
-[node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("5_xn6tu")]
+[node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_6xgfs")]
 layout_mode = 1
 offset_left = 256.0
 offset_top = 336.0
@@ -269,7 +269,7 @@ text = "RUN"
 position = Vector2(64, 304)
 rotation = -1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("6_j30p6")
+texture = ExtResource("7_6qpe2")
 
 [node name="PPBox" type="Control" parent="CanvasLayer/UI/PlayerMenu"]
 anchors_preset = 0
@@ -279,7 +279,7 @@ offset_bottom = 40.0
 [node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
 position = Vector2(552, 319)
 scale = Vector2(1.46667, 2.04167)
-texture = ExtResource("4_diktm")
+texture = ExtResource("5_20sar")
 
 [node name="PPLabel" type="Label" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
 texture_filter = 1
@@ -292,7 +292,7 @@ theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
 theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("7_lgn5t")
+theme_override_fonts/font = ExtResource("8_8ko3o")
 theme_override_font_sizes/font_size = 19
 text = "PP 35/35
 "
@@ -307,13 +307,13 @@ z_index = 1
 texture_filter = 1
 position = Vector2(592, 336)
 scale = Vector2(2, 2)
-texture = ExtResource("6_j30p6")
+texture = ExtResource("7_6qpe2")
 
 [node name="DialogBox" type="Sprite2D" parent="CanvasLayer/UI/DialogBox"]
 texture_filter = 1
 position = Vector2(320, 312)
 scale = Vector2(2.66667, 2.33333)
-texture = ExtResource("8_rwevv")
+texture = ExtResource("9_ghkry")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UI/DialogBox"]
 texture_filter = 1
@@ -323,7 +323,7 @@ offset_top = 288.0
 offset_right = 560.0
 offset_bottom = 336.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("7_lgn5t")
+theme_override_fonts/normal_font = ExtResource("8_8ko3o")
 theme_override_font_sizes/normal_font_size = 40
 text = "THE FINAL BOSS IS HERE!
 "
@@ -347,7 +347,7 @@ anchor_bottom = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_rok1x")
+texture = ExtResource("10_p7c8q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {

@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvwsqpnqaw5i0"]
+[gd_scene load_steps=3 format=3 uid="uid://bvn1urcpy52xp"]
 
 [ext_resource type="Script" path="res://manager.gd" id="1_rdv3x"]
-[ext_resource type="PackedScene" uid="uid://cwad4r3u18dvb" path="res://battle.tscn" id="2_63uit"]
+[ext_resource type="PackedScene" uid="uid://b5lbdd3e8icmo" path="res://battle2.tscn" id="2_nfuym"]
 
 [node name="Manager" type="Node2D"]
 script = ExtResource("1_rdv3x")
-battle_scene = ExtResource("2_63uit")
+battle_scene = ExtResource("2_nfuym")
 
 [node name="Debug" type="CanvasLayer" parent="."]
 

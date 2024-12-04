@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ally" load_steps=3 format=3 uid="uid://g36p0pun64hg"]
+
+[ext_resource type="Script" path="res://DigiPal.gd" id="1_ldavt"]
+[ext_resource type="Texture2D" uid="uid://di7wgc335svrx" path="res://Assets/Battle/green_monster.webp" id="2_xieo3"]
+
+[resource]
+script = ExtResource("1_ldavt")
+name = "green"
+texture = ExtResource("2_xieo3")
