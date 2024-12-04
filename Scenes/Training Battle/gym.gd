@@ -14,7 +14,10 @@ var smoke_is_happening = false
 
 func _ready():
 	print("Ready: Initializing first cutscene")
-	scream_player.play()
+	if scream_player:
+		scream_player.play()
+	else:
+		print("Error: ScreamPlayer is null")
 
 func _physics_process(delta):
 	if is_bosscutscene:
@@ -35,12 +38,23 @@ func _on_player_detection_body_entered(body):
 			print("Player detected: Starting first cutscene")
 			cutsceneopening()
 
+func _on_music_detection_body_entered(body: Node2D) -> void:
+	if scream_player:
+		scream_player.stop()
+		print("Music stopped")
+	else:
+		print("Error: Scream audio player is missing")
+
 func cutsceneopening():
 	is_bosscutscene = true
-	animplayer.play("cover_fade")
+	if animplayer:
+		animplayer.play("cover_fade")
+	else:
+		print("Error: AnimationPlayer is null")
 	player.get_node("MainCAM").enabled = false
 	camera.enabled = true
 	is_pathfollowing = true
+	scream_player.play()
 	print("First cutscene opening: Camera switched")
 
 func cutsceneending():

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbs1ica5l5t4m"
+path="res://.godot/imported/077-ponyta.mp3-071cb549e0d84c8b0681a9fb4cd93433.mp3str"
+
+[deps]
+
+source_file="res://Scenes/Training Battle/077-ponyta.mp3"
+dest_files=["res://.godot/imported/077-ponyta.mp3-071cb549e0d84c8b0681a9fb4cd93433.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

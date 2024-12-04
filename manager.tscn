@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvwsqpnqaw5i0"]
+[gd_scene load_steps=3 format=3 uid="uid://q66cou4oyaxk"]
 
 [ext_resource type="Script" path="res://manager.gd" id="1_rdv3x"]
 [ext_resource type="PackedScene" uid="uid://tgco4ahhb74g" path="res://Scenes/Training Battle/greentraining_battle.tscn" id="2_63uit"]
