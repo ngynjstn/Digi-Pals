@@ -1,7 +1,7 @@
 Dan Nguyen, Danny Tran, Justin Nguyen
 GROUP 12, SECTION 350-50
 
-DEMO LINK: https://youtu.be/SuUwjoMG8uM
+DEMO LINK: https://www.youtube.com/watch?v=XYVodjVyjTY
 
 # Digi-Pals: Comprehensive Documentation  
 
