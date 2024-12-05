@@ -139,3 +139,13 @@ We encourage feedback to improve Digi-Pals and address any issues.
 Digi-Pals is more than a prototype—it’s a full RPG experience blending exploration, storytelling, and strategic combat. From custom cutscenes to engaging battles, the game represents a collaborative effort to push creative boundaries.  
 
 We hope you enjoy the journey through the world of Digi-Pals. Your adventure awaits!  
+
+Reviews 1,2,3 Documentation:
+
+[CSE 350 Review #1.pdf](https://github.com/user-attachments/files/18015619/CSE.350.Review.1.pdf)
+
+[CSE 350 Review #2.pdf](https://github.com/user-attachments/files/18015628/CSE.350.Review.2.pdf)
+
+[CSE+350+Review+#3.pdf](https://github.com/user-attachments/files/18015654/CSE%2B350%2BReview%2B.3.pdf)
+
+
