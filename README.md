@@ -125,7 +125,9 @@ Before launching the game, ensure the following are installed:
 2. **Core Mechanics Development:** Finalized in October 2024.  
 3. **Battle System Implementation:** Integrated by October 2024.  
 4. **Testing and Debugging:** Completed in November 2024.  
-5. **Final Review:** Scheduled for December 4, 2024.  
+5. **Final Review:** Scheduled for December 4, 2024.
+
+![image](https://github.com/user-attachments/assets/41c7c98c-1db0-49ce-9cb0-04c7b4ab7c02)
 
 ---
 
