@@ -1,29 +1,4 @@
-extends Control
-
-@onready var enemy = $CanvasLayer/Enemy
-@onready var attack1_btn = $CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1
-@onready var attack2_btn = $CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn2
-@onready var enemy_hp_bar = $CanvasLayer/Enemy/EnemyHPBar
-@onready var anim = $CanvasLayer/AnimationPlayer
-@onready var text_timer = $CanvasLayer/UI/DialogBox/TextTimer
-@onready var dialog = $CanvasLayer/UI/DialogBox/RichTextLabel
-@onready var dialog_box = $CanvasLayer/UI/DialogBox
-@onready var click_to_continue = $CanvasLayer/UI/DialogBox/ContinueArrow
-@onready var menu = $CanvasLayer/UI/PlayerMenu
-@onready var menu_arrow = $CanvasLayer/UI/PlayerMenu/FightMenu/MenuArrow
-@onready var player = $CanvasLayer/Player
-@onready var canvas = $CanvasLayer
-
-@export var text_speed: float = 0.04
-@export var world : PackedScene
-
-var text_num: int = 0
-var is_dialog_finished: bool = false
-var is_menu_visible: bool = false
-var begin_battle: bool = false
-var player_turn: bool = true
-
-#var thunder_scene = preload("res://Scenes/Battle/ThunderShock.tscn")
+extends "res://Scenes/Final Battle/finalbattle.gd"
 
 func _ready():
 	SignalManager.connect("btn_pos", Callable(self, "move_menu_arrow"))
@@ -41,7 +16,7 @@ func _process(_delta: float) -> void:
 	click_to_continue.visible = is_dialog_finished
 	
 	if begin_battle:
-		show_dialog("ENEMY HAS APPEARED!")
+		show_dialog("G.BIDOOF HAS APPEARED!")
 		begin_battle = false
 		
 	if Input.is_action_just_pressed("ui_accept") and not is_menu_visible and enemy.hp > 0:
@@ -113,7 +88,7 @@ func _on_attack_btn_1_pressed() -> void:
 	show_dialog("YOU used " + attack1_btn.text)
 	#player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.emit_signal("enemy_hp_changed", 5)
+	SignalManager.emit_signal("enemy_hp_changed", 10)
 	on_enemy_turn()
 
 func _on_attack_btn_2_pressed() -> void:
@@ -124,7 +99,7 @@ func _on_attack_btn_2_pressed() -> void:
 	#canvas.add_child(thunder_instance)
 	#thunder_instance.position = $CanvasLayer/FX_pos.position    
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.emit_signal("enemy_hp_changed", 10)
+	SignalManager.emit_signal("enemy_hp_changed", 25)
 	on_enemy_turn()
 
 func _on_run_btn_pressed() -> void:
@@ -142,8 +117,8 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 func on_enemy_turn() -> void:
 	if enemy.hp > 0:
-		show_dialog("ENEMY used CLAW!")
-		SignalManager.emit_signal("player_hp_changed", 10)
+		show_dialog("ENEMY used AURA!")
+		SignalManager.emit_signal("player_hp_changed", 25)
 		await get_tree().create_timer(1.0).timeout
 		#enemy.animation_player.play("attack")
 

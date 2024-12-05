@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 	click_to_continue.visible = is_dialog_finished
 	
 	if begin_battle:
-		show_dialog("ENEMY HAS APPEARED!")
+		show_dialog("G.BIDOOF HAS APPEARED!")
 		begin_battle = false
 		
 	if Input.is_action_just_pressed("ui_accept") and not is_menu_visible and enemy.hp > 0:
@@ -61,7 +61,7 @@ func on_enemy_dead() -> void:
 	show_dialog("ENEMY fainted")
 	click_to_continue.visible = false
 	anim.play("fade_out")
-	get_tree().change_scene_to_packed(world)
+	get_tree().change_scene_to_file("res://endingscene.tscn")
 
 func on_player_dead() -> void:
 	show_dialog("Player blacked out!")
@@ -113,7 +113,7 @@ func _on_attack_btn_1_pressed() -> void:
 	show_dialog("YOU used " + attack1_btn.text)
 	#player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.emit_signal("enemy_hp_changed", 5)
+	SignalManager.emit_signal("enemy_hp_changed", 10)
 	on_enemy_turn()
 
 func _on_attack_btn_2_pressed() -> void:
@@ -124,7 +124,7 @@ func _on_attack_btn_2_pressed() -> void:
 	#canvas.add_child(thunder_instance)
 	#thunder_instance.position = $CanvasLayer/FX_pos.position    
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.emit_signal("enemy_hp_changed", 10)
+	SignalManager.emit_signal("enemy_hp_changed", 25)
 	on_enemy_turn()
 
 func _on_run_btn_pressed() -> void:
@@ -142,8 +142,8 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 func on_enemy_turn() -> void:
 	if enemy.hp > 0:
-		show_dialog("ENEMY used CLAW!")
-		SignalManager.emit_signal("player_hp_changed", 10)
+		show_dialog("G.BIDOOF used AURA!")
+		SignalManager.emit_signal("player_hp_changed", 20)
 		await get_tree().create_timer(1.0).timeout
 		#enemy.animation_player.play("attack")
 

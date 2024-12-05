@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bv1hl3qwq5660"]
 
-[ext_resource type="Script" path="res://Scenes/Final Battle/finalbattle.gd" id="1_ga6bv"]
+[ext_resource type="Script" path="res://Scenes/Final Battle/finalbattlered.gd" id="1_q87uq"]
 [ext_resource type="Texture2D" uid="uid://c8k63d2askf6v" path="res://Assets/Battle/waterfall2.png" id="2_1fpry"]
 [ext_resource type="PackedScene" uid="uid://cwk44hnwxbvgb" path="res://Assets/Battle/BATTLEUI/enemy.tscn" id="3_2hkbc"]
 [ext_resource type="PackedScene" uid="uid://tihy0uu774uy" path="res://Assets/Battle/BATTLEUI/greenplayer_battle.tscn" id="4_al4xu"]
@@ -177,7 +177,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ga6bv")
+script = ExtResource("1_q87uq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -194,6 +194,7 @@ texture = ExtResource("2_1fpry")
 position = Vector2(448, 96)
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("4_al4xu")]
+max_hp = 100
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3

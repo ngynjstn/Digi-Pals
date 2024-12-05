@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://caaoi1h1v3ajr"]
 
-[ext_resource type="Script" path="res://Assets/Battle/BATTLEUI/finalboss.gd" id="1_kp38e"]
+[ext_resource type="Script" path="res://Assets/Battle/BATTLEUI/trainingmonster.gd" id="1_bbyr0"]
 [ext_resource type="Texture2D" uid="uid://b7akwgdi3pdgn" path="res://Assets/Battle/enemy_ui.png" id="2_wp5af"]
 [ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="3_cs0j4"]
 [ext_resource type="Texture2D" uid="uid://12rb51qx3jp2" path="res://Assets/Battle/under.png" id="4_qldsk"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bk4vlu8618gve" path="res://Assets/Battle/enemy1.webp" id="6_cdeds"]
 
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_kp38e")
+script = ExtResource("1_bbyr0")
 
 [node name="EnemyUI" type="Sprite2D" parent="."]
 texture_filter = 1

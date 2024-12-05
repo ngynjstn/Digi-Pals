@@ -62,8 +62,7 @@ func _ready():
 	pal = Manager.load_player_pal()  # Restore the saved pal value
 	%Pal.text = pal  # Update any UI element with the restored value
 	
-	print (tilemap.get_cell_tile_data(0,tilemap.local_to_map(position)))
-
+	
 func update_tile():
 	if tilemap:
 		var tiledata = tilemap.get_cell_tile_data(0,tilemap.local_to_map(position))

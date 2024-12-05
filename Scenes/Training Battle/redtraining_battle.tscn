@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1rmy86wvhc4n"]
+[gd_scene load_steps=19 format=3 uid="uid://c1rmy86wvhc4n"]
 
 [ext_resource type="Script" path="res://Scenes/Final Battle/finalbattle.gd" id="1_21hyk"]
 [ext_resource type="PackedScene" uid="uid://cuex2bxegnsuh" path="res://Scenes/Training Battle/Gym.tscn" id="2_acqle"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="8_3qd81"]
 [ext_resource type="Texture2D" uid="uid://dy0akh7xyymeo" path="res://Assets/Battle/dialog_box.png" id="9_kq53q"]
 [ext_resource type="Texture2D" uid="uid://cnekyupmyr8ah" path="res://Assets/Battle/fade.png" id="10_ylmxn"]
+[ext_resource type="AudioStream" uid="uid://dangcgufq88cx" path="res://Assets/Battle/WildBattle.mp3" id="12_h1if0"]
 
 [sub_resource type="Animation" id="Animation_we6v4"]
 length = 0.001
@@ -253,7 +254,7 @@ focus_neighbor_left = NodePath("../AttackBtn1")
 focus_neighbor_bottom = NodePath("../RunBtn")
 mouse_default_cursor_shape = 2
 texture_normal = null
-text = "GROWL"
+text = "RASENGAN"
 
 [node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_10f36")]
 layout_mode = 1
@@ -356,7 +357,8 @@ libraries = {
 }
 
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
-volume_db = 10.0
+stream = ExtResource("12_h1if0")
+volume_db = 7.164
 
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1" to="." method="_on_attack_btn_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn2" to="." method="_on_attack_btn_2_pressed"]

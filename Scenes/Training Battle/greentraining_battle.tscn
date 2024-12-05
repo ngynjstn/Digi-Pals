@@ -253,7 +253,7 @@ focus_neighbor_left = NodePath("../AttackBtn1")
 focus_neighbor_bottom = NodePath("../RunBtn")
 mouse_default_cursor_shape = 2
 texture_normal = null
-text = "GROWL"
+text = "RASENGAN"
 
 [node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_8ynvo")]
 layout_mode = 1

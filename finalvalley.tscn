@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ct4twccgasdm7"]
+[gd_scene load_steps=33 format=4 uid="uid://ct4twccgasdm7"]
 
 [ext_resource type="Texture2D" uid="uid://b532ucgkanhb7" path="res://Assets/Map/terrain2.png" id="1_55wwg"]
 [ext_resource type="Script" path="res://finalvalley.gd" id="1_68vh4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0y4i7ses5ick" path="res://Assets/Map/house6.png" id="6_1jw3r"]
 [ext_resource type="Texture2D" uid="uid://dr8h47lnlkal3" path="res://Assets/Map/Game Boy Advance - Pokemon Emerald - Faraway Island.png" id="7_lefqx"]
 [ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://Scenes/Player/player.tscn" id="8_6nb5l"]
+[ext_resource type="Script" path="res://finalvalleyboss2.gd" id="10_q5edx"]
 [ext_resource type="Texture2D" uid="uid://lj0vymfqb7hu" path="res://Assets/Player/girlfriend-removebg-preview.png" id="10_y30fn"]
 [ext_resource type="Texture2D" uid="uid://d1w40f576c5ie" path="res://Assets/Player/finalboss.webp" id="11_lla4h"]
 [ext_resource type="AudioStream" uid="uid://csdyoe1sy47s3" path="res://Assets/Player/115-kangaskhan.mp3" id="12_e1rpp"]
@@ -4417,6 +4418,9 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_3565t")
 sources/1 = SubResource("TileSetAtlasSource_vmhy7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odcb3"]
+size = Vector2(60, 64)
+
 [sub_resource type="Animation" id="Animation_i8igx"]
 length = 0.001
 tracks/0/type = "value"
@@ -4480,7 +4484,7 @@ tile_map_data = PackedByteArray("AAALAP7/AAAAAAQAAAALAP//AAAAAAUAAAALAAAAAAAAAAY
 tile_set = SubResource("TileSet_bxvke")
 
 [node name="Player" parent="." instance=ExtResource("8_6nb5l")]
-position = Vector2(768, 400)
+position = Vector2(128, 16)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(96, 32)
@@ -4489,10 +4493,29 @@ limit_top = -32
 limit_right = 1280
 limit_bottom = 528
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1008, 224)
+[node name="FinalBoss" type="Node2D" parent="."]
+position = Vector2(272, 1632)
+script = ExtResource("10_q5edx")
+
+[node name="Boss" type="Sprite2D" parent="FinalBoss"]
+position = Vector2(736, -1408)
 scale = Vector2(0.26087, 0.3125)
 texture = ExtResource("11_lla4h")
+
+[node name="player_detection" type="Area2D" parent="FinalBoss"]
+position = Vector2(432, -1888)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalBoss/player_detection"]
+position = Vector2(304, 496)
+shape = SubResource("RectangleShape2D_odcb3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FinalBoss"]
+
+[node name="ColorRect" type="ColorRect" parent="FinalBoss/CanvasLayer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
 [node name="Girlfriend" type="Node2D" parent="."]
 texture_filter = 1
@@ -4590,4 +4613,5 @@ loop = false
 position = Vector2(7.90742e-06, 2.13905e-06)
 zoom = Vector2(4, 3)
 
+[connection signal="body_entered" from="FinalBoss/player_detection" to="FinalBoss" method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="cutscene/player_detection" to="." method="_on_player_detection_body_entered"]

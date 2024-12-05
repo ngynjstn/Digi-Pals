@@ -14,7 +14,7 @@ func _ready():
 	encounter_number = randi_range(25,50)
 
 var area : String = "Not"
-var player_last_position: Vector2 = Vector2(532,1300)
+var player_last_position: Vector2 = Vector2(532,10)
  
 var pal : String = "Non"
 var saved_pal: String = ""

@@ -408,6 +408,7 @@ states/Walk/position = Vector2(373.6, 48.784)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
 script = ExtResource("1_8x65y")
+walk_speed = 150.0
 metadata/_edit_vertical_guides_ = [-32.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -441,6 +442,7 @@ parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="Tile" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 offset_left = -17.0
 offset_top = -31.0
@@ -451,6 +453,7 @@ vertical_alignment = 1
 
 [node name="Distance" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 offset_left = 33.0
 offset_top = -24.0
@@ -461,6 +464,7 @@ vertical_alignment = 1
 
 [node name="Pal" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 offset_left = 17.0
 offset_top = -15.0

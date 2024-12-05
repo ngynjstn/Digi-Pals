@@ -9,6 +9,7 @@ extends Node2D
 @onready var scream_player = $Boss/AudioStreamPlayer2D
 @onready var dialogue_label = $Dialouge/Label  # Reference to the Label node for dialogue
 @onready var dialogue = $Dialouge
+@onready var mainplayer = $Player
 
 var is_bosscutscene = false
 var has_player_entered_area = false
@@ -19,12 +20,14 @@ var smoke_has_happened = false
 var smoke_is_happening = false
 
 var dialogues = [
-	"BRO",
+	"Well Well Well... Took you long enough",
+	"I am going to get you!"
 ]
 
 var current_dialogue_index = 0
 
 func _ready():
+	mainplayer.position = Vector2(128, 16)
 	dialogue_label.visible = false  # Hide dialogue initially
 	dialogue.visible = false
 

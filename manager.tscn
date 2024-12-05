@@ -18,9 +18,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Debug/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Encounter" type="Label" parent="Debug/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Encounter ar "

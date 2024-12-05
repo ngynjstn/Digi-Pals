@@ -1,15 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://co7hb8b42kc7w"]
+[gd_scene load_steps=19 format=3 uid="uid://co7hb8b42kc7w"]
 
-[ext_resource type="Script" path="res://Scenes/Final Battle/finalbattle.gd" id="1_wkn2x"]
+[ext_resource type="Script" path="res://Scenes/Final Battle/finalbattlered.gd" id="1_dpntv"]
 [ext_resource type="Texture2D" uid="uid://c8k63d2askf6v" path="res://Assets/Battle/waterfall2.png" id="2_c7mlf"]
 [ext_resource type="PackedScene" uid="uid://cwk44hnwxbvgb" path="res://Assets/Battle/BATTLEUI/enemy.tscn" id="3_87uwe"]
 [ext_resource type="PackedScene" uid="uid://b7oexnk1qv753" path="res://Assets/Battle/BATTLEUI/redplayer_battle.tscn" id="4_4k4ih"]
+[ext_resource type="Script" path="res://Scenes/Final Battle/finalredplayer_battle.gd" id="5_0nn1n"]
 [ext_resource type="Texture2D" uid="uid://b6cqhftkttfbl" path="res://Assets/UI/menu.png" id="5_xdkxk"]
 [ext_resource type="PackedScene" uid="uid://ui2ly103y530" path="res://texture_button.tscn" id="6_5g5oc"]
 [ext_resource type="Texture2D" uid="uid://dt5x2wyhu3838" path="res://Assets/Battle/arrow.png" id="7_1jakl"]
 [ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="8_mmgqk"]
 [ext_resource type="Texture2D" uid="uid://dy0akh7xyymeo" path="res://Assets/Battle/dialog_box.png" id="9_7cewi"]
 [ext_resource type="Texture2D" uid="uid://cnekyupmyr8ah" path="res://Assets/Battle/fade.png" id="10_igtiq"]
+[ext_resource type="AudioStream" uid="uid://xpqq5yp7uakc" path="res://Assets/Battle/15.mp3" id="12_2vx1x"]
 
 [sub_resource type="Animation" id="Animation_we6v4"]
 length = 0.001
@@ -177,7 +179,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wkn2x")
+script = ExtResource("1_dpntv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -194,6 +196,8 @@ texture = ExtResource("2_c7mlf")
 position = Vector2(448, 96)
 
 [node name="Player" parent="CanvasLayer" groups=["player_battle"] instance=ExtResource("4_4k4ih")]
+script = ExtResource("5_0nn1n")
+max_hp = 100
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -251,7 +255,7 @@ focus_neighbor_left = NodePath("../AttackBtn1")
 focus_neighbor_bottom = NodePath("../RunBtn")
 mouse_default_cursor_shape = 2
 texture_normal = null
-text = "GROWL"
+text = "RASENGAN"
 
 [node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_5g5oc")]
 layout_mode = 1
@@ -354,6 +358,7 @@ libraries = {
 }
 
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2vx1x")
 volume_db = 10.0
 
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1" to="." method="_on_attack_btn_1_pressed"]

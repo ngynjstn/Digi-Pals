@@ -25,6 +25,7 @@ script/source = "extends Node2D
 @onready var scream_player = $Boss/AudioStreamPlayer2D
 @onready var dialogue_label = $Boss/Dialouge/Label  # Reference to the Label node for dialogue
 @onready var dialogue = $Boss/Dialouge
+@onready var mainplayer = $Player
 
 var is_bosscutscene = false
 var has_player_entered_area = false
@@ -41,10 +42,12 @@ var dialogues = [
 var current_dialogue_index = 0
 
 func _ready():
+	mainplayer.position = Vector2(-48,176)
 	boss.visible = false  # Hide the boss initially
 	smoke.visible = false
 	dialogue_label.visible = false  # Hide dialogue initially
 	dialogue.visible = false
+	
 
 func _physics_process(delta):
 	if is_bosscutscene:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://cuex2bxegnsuh"]
+[gd_scene load_steps=34 format=3 uid="uid://cuex2bxegnsuh"]
 
 [ext_resource type="Texture2D" uid="uid://5bo6fgmoumxt" path="res://Assets/Map/worldmap.png" id="1_3bco5"]
 [ext_resource type="Script" path="res://Scenes/Training Battle/gym.gd" id="1_loe5q"]
 [ext_resource type="Texture2D" uid="uid://b3fu4i6x67yb6" path="res://Assets/Map/terrain1.png" id="2_yoild"]
 [ext_resource type="Texture2D" uid="uid://cn4gp1jj7n4o1" path="res://Assets/Map/house3.png" id="3_wrn54"]
 [ext_resource type="Texture2D" uid="uid://duimx70ot4345" path="res://Assets/Map/house2.png" id="4_se20o"]
+[ext_resource type="Script" path="res://Scenes/Training Battle/next_scene2.gd" id="4_v0bt0"]
 [ext_resource type="Texture2D" uid="uid://dc4cwn58hi8nc" path="res://Assets/Map/house5.png" id="5_lt4fe"]
 [ext_resource type="Texture2D" uid="uid://b4ipw2drbaafw" path="res://Assets/Tilesets/grass1_tileset.png" id="6_rvyb7"]
 [ext_resource type="PackedScene" uid="uid://b5sjm4a6o5rkf" path="res://Scenes/Player/player.tscn" id="7_5b71k"]
@@ -17,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://de5tm41w863sh" path="res://Scenes/Training Battle/green_monster_front.webp" id="14_fpdol"]
 [ext_resource type="AudioStream" uid="uid://ufvbxbrvwxks" path="res://Scenes/Training Battle/39 - Lavender Town.mp3" id="15_bf5qi"]
 [ext_resource type="Texture2D" uid="uid://clgwb8n4ulupk" path="res://Assets/Tilesets/grass2_tileset.png" id="15_vdmg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qoayn"]
+size = Vector2(1040, 64)
 
 [sub_resource type="Animation" id="Animation_fsjni"]
 length = 0.001
@@ -65,7 +69,7 @@ _data = {
 point_count = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44ovx"]
-size = Vector2(278.5, 51)
+size = Vector2(278.5, 25.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyma4"]
 texture = ExtResource("1_3bco5")
@@ -2059,6 +2063,7 @@ polygon = PackedVector2Array(255, 371, 324, 371, 322, 390, 350, 393, 353, 412, 4
 [node name="Player" parent="." instance=ExtResource("7_5b71k")]
 y_sort_enabled = true
 position = Vector2(544, 16)
+walk_speed = 150.0
 
 [node name="MainCAM" type="Camera2D" parent="Player"]
 position = Vector2(-8, 13)
@@ -2066,6 +2071,25 @@ limit_left = 0
 limit_top = 0
 limit_right = 976
 limit_bottom = 2128
+
+[node name="NextScene" type="Node2D" parent="."]
+position = Vector2(272, 1632)
+script = ExtResource("4_v0bt0")
+
+[node name="player_detection" type="Area2D" parent="NextScene"]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextScene/player_detection"]
+position = Vector2(216, 496)
+shape = SubResource("RectangleShape2D_qoayn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NextScene"]
+
+[node name="ColorRect" type="ColorRect" parent="NextScene/CanvasLayer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
 [node name="cutscene" type="Node2D" parent="."]
 position = Vector2(368, 65)
@@ -2140,8 +2164,9 @@ shape = SubResource("RectangleShape2D_44ovx")
 position = Vector2(304, 192)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GhostTown/starter_detection"]
-position = Vector2(-131, 351)
+position = Vector2(-128, 364.75)
 shape = SubResource("RectangleShape2D_44ovx")
+one_way_collision_margin = 41.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GhostTown"]
 stream = ExtResource("7_utibv")
@@ -2181,6 +2206,7 @@ layer_3/name = "Layer3"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array(6029343, 524289, 7, 6094879, 524289, 8, 6029344, 589825, 7, 6094880, 589825, 8, 6029345, 524289, 7, 6094881, 524289, 8, 6029346, 589825, 7, 6094882, 524289, 7, 6160418, 524289, 8, 6094883, 589825, 7, 6160419, 589825, 8, 6029335, 393217, 5, 6094871, 393217, 6, 6029336, 458753, 5, 6094872, 458753, 6, 6029337, 393217, 5, 6094873, 393217, 6, 6029338, 458753, 5, 6094874, 458753, 6, 6029339, 393217, 5, 6094875, 393217, 6, 6029340, 458753, 5, 6094876, 458753, 6, 6029330, 393217, 1, 6094866, 393217, 2, 6029331, 458753, 1, 6094867, 458753, 2, 6029332, 393217, 1, 6094868, 393217, 2, 6029333, 458753, 1, 6094869, 458753, 2)
 
+[connection signal="body_entered" from="NextScene/player_detection" to="NextScene" method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="cutscene/player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="cutscene/music_detection" to="." method="_on_music_detection_body_entered"]
 [connection signal="body_entered" from="GhostTown/player_detection" to="GhostTown" method="_on_player_detection_body_entered"]
