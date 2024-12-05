@@ -129,6 +129,8 @@ Before launching the game, ensure the following are installed:
 4. **Testing and Debugging:** Completed in November 2024.  
 5. **Final Review:** Scheduled for December 4, 2024.  
 
+![image](https://github.com/user-attachments/assets/f02e7026-4079-4a17-bc3a-a6f18623bfcf)
+
 ---
 
 ## Feedback and Support  
