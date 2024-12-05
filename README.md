@@ -89,7 +89,7 @@ Before launching the game, ensure the following are installed:
 - **Dan Nguyen:** Project Manager, overseeing timeline and features.  
 - **Justin Nguyen:** Lead Developer, responsible for gameplay mechanics and AI.  
 - **Danny Tran:** Map Designer, creating immersive environments and encounters.  
-- **Keaton:** Provided ideas during brainstorming.  
+- **Keaton:** N/A
 - **Mary:** Supported initial planning discussions.  
 
 ---
