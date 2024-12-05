@@ -59,13 +59,9 @@ Before launching the game, ensure the following are installed:
 
 2. **Import the Project into Godot:**  
    - Open the Godot Engine.  
-   - Import the project directory.  
+   - Import the project directory.    
 
-3. **Database Setup:**  
-   - Use SQLite to set up tables for Digi-Pals, moves, and inventory.  
-   - Populate these tables with sample data from the `data` folder.  
-
-4. **Launch the Game:**  
+3. **Launch the Game:**  
    - Open the project in Godot.  
    - Click **Start** to begin your adventure.  
 
@@ -117,19 +113,102 @@ Before launching the game, ensure the following are installed:
 
 - **Optimized Rendering:** Efficient 2D rendering for smooth gameplay on low-end devices.  
 - **Memory Management:** Use of object pooling to reduce resource consumption.  
-- **Expandable Design:** Modular architecture allows for future updates and expansions.  
+- **Expandable Design:** Modular architecture allows for future updates and expansions.
+  
+---
+
+## Documentation Overview  
+
+This documentation captures the project’s development process, covering:  
+- Progress Reports  
+- Meeting Minutes  
+- Action Items  
+- Implementation Details  
 
 ---
 
-## Project Timeline  
+## Progress Reports  
 
-1. **Initial Planning:** Completed  
+The following timeline highlights the key milestones and current project status:  
+
+1. **Initial Planning and Familiarization (9/27 - 10/5)**  
+   - Completed.  
+   - Team roles were assigned, and the Godot Engine was set up. Brainstorming sessions outlined core game mechanics and narrative elements.  
+
+2. **Core Game Mechanics and Initial Setup (10/6 - 10/11)**  
+   - Completed.  
+   - The foundational framework for the game was established, including basic movement, database structure, and UI design.  
+
+3. **Battle System Development and Integration (10/12 - 10/27)**  
+   - Completed.  
+   - Fully implemented turn-based combat mechanics. Moves are balanced, and animations optimized for smooth performance.  
+
+4. **Testing and Debugging (10/28 - 11/10)**  
+   - Completed.  
+   - Comprehensive UI testing was conducted, ensuring responsiveness across devices. Game mechanics, database synchronization, and transitions were rigorously debugged.  
+
+5. **Final Review and Presentation Preparation (11/11 - 12/4)**  
+   - Completed.  
+   - Final polishing of cutscenes, UI enhancements, and documentation for the final presentation.  
+
+---
+
+## Meeting Minutes  
+
+### Meeting Details  
+- **Date/Time**: Thursdays, 4:00 PM ON Microsoft Teams
+- **Attendees**:  
+  - Danny Tran  
+  - Anh Nguyen  
+  - Justin Nguyen  
+
+### Agenda  
+1. Status updates on individual tasks.  
+2. Discussion of project progress and challenges.  
+3. Coordination of next steps and deadlines.  
+
+### Summary  
+
+#### Updates on Individual Tasks  
+- **Danny Tran**:  
+  Progressed on finalizing maps, ensuring they integrate seamlessly into the game. Resolved minor issues with collision boundaries and interactive objects.  
+- **Anh Nguyen**:  
+  Implementation of creating the sprites and applying them with Digi-Pal stats, moves, and collisions that are fully functional. Focused on ensuring data consistency during gameplay.  
+- **Justin Nguyen**:  
+  Final debugging of the battle system completed. Resolved edge cases involving move execution and ensured animations performed consistently under varying conditions.  
+
+#### Challenges Addressed  
+- **Battle System**:  
+  Minor inconsistencies in damage calculation were identified and resolved.  
+- **Transitions**:  
+  Adjusted scene transitions to maintain a consistent frame rate.  
+
+---
+
+### Action Items  
+
+1. **Cutscene Polishing**:  
+   - Final adjustments to dialogue timing and character animations.  
+
+2. **UI Enhancements**:  
+   - Refine health bars, menus, and inventory management systems.  
+
+3. **Final Testing**:  
+   - Conduct comprehensive playtesting to identify any remaining bugs or inconsistencies.  
+
+![image](https://github.com/user-attachments/assets/f02e7026-4079-4a17-bc3a-a6f18623bfcf)
+
+---
+
+## Conclusion  
+
+Digi-Pals is now a complete RPG prototype that showcases the collaborative efforts of the development team. With immersive storytelling, engaging gameplay, and polished mechanics, the game provides a solid foundation for future expansions and improvements.  
+
+This documentation serves as a comprehensive guide to the project’s development journey, offering insights into the team’s workflow, challenges, and achievements.:** Completed  
 2. **Core Mechanics Development:** Finalized in October 2024.  
 3. **Battle System Implementation:** Integrated by October 2024.  
 4. **Testing and Debugging:** Completed in November 2024.  
 5. **Final Review:** Scheduled for December 4, 2024.  
-
-![image](https://github.com/user-attachments/assets/f02e7026-4079-4a17-bc3a-a6f18623bfcf)
 
 ---
 
@@ -147,7 +226,7 @@ Digi-Pals is more than a prototype—it’s a full RPG experience blending explo
 
 We hope you enjoy the journey through the world of Digi-Pals. Your adventure awaits!  
 
-Reviews 1,2,3 Documentation:
+Reviews 1, 2, and 3 Documentation:
 
 [CSE 350 Review #1.pdf](https://github.com/user-attachments/files/18015619/CSE.350.Review.1.pdf)
 
