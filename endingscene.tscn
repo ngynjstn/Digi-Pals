@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv0csiqtbif64"]
+
+[ext_resource type="Script" path="res://endingscene.gd" id="1_lgr42"]
+[ext_resource type="AudioStream" uid="uid://cegu0x3mrt3w4" path="res://Assets/Player/03 - Introduction.mp3" id="2_pcv0b"]
+[ext_resource type="Texture2D" uid="uid://dq8iph2qj8m1h" path="res://Assets/UI/backdrop2.webp" id="3_xlmil"]
+[ext_resource type="Texture2D" uid="uid://d1pojt6e8xtv" path="res://Assets/UI/Pokemon Party/professor.png" id="4_tr2pt"]
+[ext_resource type="Texture2D" uid="uid://bn42d8sgbjomd" path="res://Assets/UI/Pokemon Party/dialouge.png" id="5_mcq0r"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="6_pxlee"]
+
+[node name="Ending Scene" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.067
+offset_bottom = -16.12
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lgr42")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pcv0b")
+volume_db = 7.964
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(316, 184)
+scale = Vector2(0.385714, 0.350476)
+texture = ExtResource("3_xlmil")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(128, 272)
+scale = Vector2(1.17905, 1.21139)
+texture = ExtResource("4_tr2pt")
+
+[node name="Dialouge" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(400, 176)
+scale = Vector2(0.426744, 0.379941)
+texture = ExtResource("5_mcq0r")
+
+[node name="Label" type="Label" parent="Dialouge"]
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.222
+anchor_right = 0.892
+anchor_bottom = 0.775
+offset_left = -392.479
+offset_top = -109.822
+offset_right = -205.559
+offset_bottom = -67.4868
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_pxlee")
+theme_override_font_sizes/font_size = 25

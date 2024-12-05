@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://q66cou4oyaxk"]
+
+[ext_resource type="Script" path="res://manager.gd" id="1_rdv3x"]
+[ext_resource type="PackedScene" uid="uid://tgco4ahhb74g" path="res://Scenes/Training Battle/greentraining_battle.tscn" id="2_63uit"]
+[ext_resource type="PackedScene" uid="uid://c1rmy86wvhc4n" path="res://Scenes/Training Battle/redtraining_battle.tscn" id="3_uvbqe"]
+[ext_resource type="PackedScene" uid="uid://delwwug8ll6j5" path="res://Scenes/Training Battle/purpletraining_battle.tscn" id="4_2v61n"]
+
+[node name="Manager" type="Node2D"]
+script = ExtResource("1_rdv3x")
+greenbattle_scene = ExtResource("2_63uit")
+redbattle_scene = ExtResource("3_uvbqe")
+purplebattle_scene = ExtResource("4_2v61n")
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Debug/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Encounter" type="Label" parent="Debug/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Encounter ar "

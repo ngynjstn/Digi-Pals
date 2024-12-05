@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ui2ly103y530"]
+
+[ext_resource type="Texture2D" uid="uid://yf4e7lmmj1yw" path="res://Assets/Battle/button.png" id="1_b7opx"]
+[ext_resource type="Script" path="res://texture_button.gd" id="2_i6t8a"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="3_l7yby"]
+
+[node name="TextureButton" type="TextureButton"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_b7opx")
+stretch_mode = 0
+script = ExtResource("2_i6t8a")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 1)
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.815686, 0.815686, 0.784314, 1)
+theme_override_fonts/font = ExtResource("3_l7yby")
+theme_override_font_sizes/font_size = 30
+text = "Text"
+vertical_alignment = 1
+autowrap_mode = 2

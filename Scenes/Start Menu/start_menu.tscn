@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://crr167cvu7o63"]
+
+[ext_resource type="Script" path="res://Scenes/Start Menu/start_menu.gd" id="1_tfkl5"]
+[ext_resource type="AudioStream" uid="uid://ddug0upqi3chi" path="res://Assets/Player/Pokemon Yellow Intro (mp3cut.net).mp3" id="2_1heb5"]
+[ext_resource type="Texture2D" uid="uid://dbb2ty0bdfyq4" path="res://Assets/UI/poke.jpg" id="2_37068"]
+[ext_resource type="Texture2D" uid="uid://b5fbtqmj5huk4" path="res://Assets/UI/digipalstitle.png" id="4_5k5ax"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="5_es63t"]
+
+[sub_resource type="Animation" id="Animation_cqlfw"]
+resource_name = "so"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["PRESS START"]
+}
+
+[sub_resource type="Animation" id="Animation_o03cv"]
+resource_name = "Start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["PRESS START"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehe1v"]
+_data = {
+"RESET": SubResource("Animation_cqlfw"),
+"Start": SubResource("Animation_o03cv")
+}
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchor_right = 0.925
+anchor_bottom = 0.933
+offset_right = -16.0001
+offset_bottom = 0.119995
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfkl5")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1heb5")
+volume_db = 2.291
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ehe1v")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 6.4e+07
+offset_bottom = 3.68e+07
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_37068")
+expand_mode = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(320, 80)
+scale = Vector2(1.16243, 0.81338)
+texture = ExtResource("4_5k5ax")
+
+[node name="Start" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 240.0
+offset_right = 528.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_es63t")
+theme_override_font_sizes/font_size = 50
+text = "PRESS START"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

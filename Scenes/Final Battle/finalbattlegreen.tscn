@@ -1,0 +1,362 @@
+[gd_scene load_steps=17 format=3 uid="uid://bv1hl3qwq5660"]
+
+[ext_resource type="Script" path="res://Scenes/Final Battle/finalbattlered.gd" id="1_q87uq"]
+[ext_resource type="Texture2D" uid="uid://c8k63d2askf6v" path="res://Assets/Battle/waterfall2.png" id="2_1fpry"]
+[ext_resource type="PackedScene" uid="uid://cwk44hnwxbvgb" path="res://Assets/Battle/BATTLEUI/enemy.tscn" id="3_2hkbc"]
+[ext_resource type="PackedScene" uid="uid://tihy0uu774uy" path="res://Assets/Battle/BATTLEUI/greenplayer_battle.tscn" id="4_al4xu"]
+[ext_resource type="Texture2D" uid="uid://b6cqhftkttfbl" path="res://Assets/UI/menu.png" id="5_x0qr5"]
+[ext_resource type="PackedScene" uid="uid://ui2ly103y530" path="res://texture_button.tscn" id="6_pix8w"]
+[ext_resource type="Texture2D" uid="uid://dt5x2wyhu3838" path="res://Assets/Battle/arrow.png" id="7_1jem2"]
+[ext_resource type="FontFile" uid="uid://cm8w63bx7nt0n" path="res://Assets/UI/pkmnfl.ttf" id="8_6otqf"]
+[ext_resource type="Texture2D" uid="uid://dy0akh7xyymeo" path="res://Assets/Battle/dialog_box.png" id="9_x4knl"]
+[ext_resource type="Texture2D" uid="uid://cnekyupmyr8ah" path="res://Assets/Battle/fade.png" id="10_fyesl"]
+
+[sub_resource type="Animation" id="Animation_we6v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/DialogBox/ContinueArrow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/DialogBox/ContinueArrow:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yoaem"]
+resource_name = "blink"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DialogBox/ContinueArrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/DialogBox/ContinueArrow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ichsu"]
+resource_name = "fade_in"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_c5nkj"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.966667, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_w885o"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DialogBox/ContinueArrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svwte"]
+_data = {
+"RESET": SubResource("Animation_we6v4"),
+"blink": SubResource("Animation_yoaem"),
+"fade_in": SubResource("Animation_ichsu"),
+"fade_out": SubResource("Animation_c5nkj"),
+"hide": SubResource("Animation_w885o")
+}
+
+[node name="Final Valley Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q87uq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BattleBkg" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(320, 144)
+scale = Vector2(0.372093, 0.324324)
+texture = ExtResource("2_1fpry")
+
+[node name="Enemy" parent="CanvasLayer" instance=ExtResource("3_2hkbc")]
+
+[node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(448, 96)
+
+[node name="Player" parent="CanvasLayer" instance=ExtResource("4_al4xu")]
+max_hp = 100
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerMenu" type="Control" parent="CanvasLayer/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FightMenu" type="Control" parent="CanvasLayer/UI/PlayerMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/FightMenu"]
+texture_filter = 1
+position = Vector2(244, 320)
+scale = Vector2(3.93333, 2)
+texture = ExtResource("5_x0qr5")
+
+[node name="AttackBtn1" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_pix8w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 128.0
+offset_bottom = 320.0
+grow_horizontal = 1
+grow_vertical = 1
+focus_neighbor_right = NodePath("../AttackBtn2")
+focus_neighbor_bottom = NodePath("../RunBtn")
+mouse_default_cursor_shape = 2
+texture_normal = null
+text = "SLASH"
+
+[node name="AttackBtn2" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_pix8w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 256.0
+offset_top = 288.0
+offset_right = 336.0
+offset_bottom = 320.0
+grow_horizontal = 1
+grow_vertical = 1
+focus_neighbor_left = NodePath("../AttackBtn1")
+focus_neighbor_bottom = NodePath("../RunBtn")
+mouse_default_cursor_shape = 2
+texture_normal = null
+text = "GROWL"
+
+[node name="RunBtn" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_pix8w")]
+layout_mode = 1
+offset_left = 256.0
+offset_top = 336.0
+offset_right = 216.0
+offset_bottom = 296.0
+focus_neighbor_top = NodePath("../AttackBtn2")
+mouse_default_cursor_shape = 2
+texture_normal = null
+text = "RUN"
+
+[node name="MenuArrow" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/FightMenu"]
+position = Vector2(64, 304)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("7_1jem2")
+
+[node name="PPBox" type="Control" parent="CanvasLayer/UI/PlayerMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
+position = Vector2(552, 319)
+scale = Vector2(1.46667, 2.04167)
+texture = ExtResource("5_x0qr5")
+
+[node name="PPLabel" type="Label" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 496.0
+offset_top = 304.0
+offset_right = 576.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("8_6otqf")
+theme_override_font_sizes/font_size = 19
+text = "PP 35/35
+"
+
+[node name="DialogBox" type="Control" parent="CanvasLayer/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContinueArrow" type="Sprite2D" parent="CanvasLayer/UI/DialogBox"]
+z_index = 1
+texture_filter = 1
+position = Vector2(592, 336)
+scale = Vector2(2, 2)
+texture = ExtResource("7_1jem2")
+
+[node name="DialogBox" type="Sprite2D" parent="CanvasLayer/UI/DialogBox"]
+texture_filter = 1
+position = Vector2(320, 312)
+scale = Vector2(2.66667, 2.33333)
+texture = ExtResource("9_x4knl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UI/DialogBox"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 288.0
+offset_right = 560.0
+offset_bottom = 336.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("8_6otqf")
+theme_override_font_sizes/normal_font_size = 40
+text = "THE FINAL BOSS IS HERE!
+"
+visible_characters = 24
+
+[node name="TextTimer" type="Timer" parent="CanvasLayer/UI/DialogBox"]
+wait_time = 0.05
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(320, 176)
+enabled = false
+
+[node name="Fade" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_fyesl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_svwte")
+}
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+volume_db = 10.0
+
+[connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1" to="." method="_on_attack_btn_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn2" to="." method="_on_attack_btn_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/RunBtn" to="." method="_on_run_btn_pressed"]
