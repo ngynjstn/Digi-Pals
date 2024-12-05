@@ -1,3 +1,6 @@
+Dan Nguyen, Danny Tran, Justin Nguyen
+GROUP 12, SECTION 350-50
+
 # Digi-Pals: Comprehensive Documentation  
 
 **Digi-Pals** is a Pokémon-inspired RPG that combines traditional mechanics with unique storytelling and gameplay elements. Built using the **Godot Engine**, this game offers an original narrative, strategic turn-based combat, and custom-designed assets. Players journey through a rich world filled with challenges, culminating in a climactic final boss encounter.  
@@ -147,5 +150,3 @@ Reviews 1,2,3 Documentation:
 [CSE 350 Review #2.pdf](https://github.com/user-attachments/files/18015628/CSE.350.Review.2.pdf)
 
 [CSE+350+Review+#3.pdf](https://github.com/user-attachments/files/18015654/CSE%2B350%2BReview%2B.3.pdf)
-
-
